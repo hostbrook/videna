@@ -1,0 +1,11 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Videna\\": "Videna/",
+            "App\\": "App/"
+        }
+    }
+}

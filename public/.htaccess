@@ -1,0 +1,23 @@
+AddDefaultCharset utf-8
+AddCharset utf-8 *
+
+# Main file in root directory:
+DirectoryIndex index.php
+
+# Let PHP in HTML files:
+#AddHandler application/x-httpd-php .html
+
+ErrorDocument 400 /index.php?action=error&response=400
+ErrorDocument 401 /index.php?action=error&response=401
+ErrorDocument 403 /index.php?action=error&response=403
+ErrorDocument 404 /index.php?action=error&response=404
+ErrorDocument 500 /index.php?action=error&response=500
+
+<IfModule mod_rewrite.c>
+ 	Options -Multiviews
+	RewriteEngine On
+	RewriteBase /public
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.+)$ index.php?url=$1 [L,QSA]
+</IfModule>

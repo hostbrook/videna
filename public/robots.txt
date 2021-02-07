@@ -1,0 +1,10 @@
+user-agent: *
+allow: /
+
+user-agent: MJ12bot
+disallow: /
+
+user-agent: ltx71 - (http://ltx71.com/)
+disallow: /
+
+sitemap: https://videna.info/sitemap.xml
