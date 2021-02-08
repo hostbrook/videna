@@ -30,8 +30,6 @@ define('PATH_APP_LOG', PATH_ROOT . '/logs/videna.log');
 define('PATH_PHP_LOG', PATH_ROOT . '/error_log');
 define('PATH_SRV_LOG', PATH_ROOT . '/logs/error.php');
 /*
-define('PATH_FWK_INI', PATH_PROJECT_ROOT . '/framework/framework.ini');
-define('PATH_FWK_DOC', PATH_PROJECT_ROOT . '/framework/readme.md');
 define('PATH_SUPERADMIN_INI', PATH_PROJECT_ROOT . '/' . PATH_APP_CONFIGS . '/superadmin.ini');
 */
 
