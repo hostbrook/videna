@@ -44,14 +44,6 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SPA</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown03">
-            <a class="dropdown-item spa" href="/"><?=$_['home']?></a>
-            <a class="dropdown-item spa" href="/product-one/"><?=$_['product']?> 1</a>
-            <a class="dropdown-item spa" href="/product-one/sub-product-one"><?=$_['sub-product']?> 1</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$_['language']?></a>
           <div class="dropdown-menu" aria-labelledby="dropdown02">
             <a class="dropdown-item" href="/en/">English</a>            

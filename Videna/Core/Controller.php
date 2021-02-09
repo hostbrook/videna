@@ -33,12 +33,13 @@ abstract class Controller {
 
 		// Set language:
 		$this->lang = new Lang($this->config, $this->router, $userLang);
-		
-		// Set requested action:
-		$method = 'action' . $name;
-			
+					
 		// Filter "before" - before action starts
+		// At this filter you maybe want to change action.
 		$this->before();
+
+		// Set requested action:
+		$method = 'action' . $this->router['action'];
 
 		call_user_func_array([$this, $method], $args);
 		

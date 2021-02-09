@@ -1,4 +1,6 @@
-    <div class="row">
+<?php include PATH_VIEWS.'/inc/header.php' ?>
+
+<div class="row">
       <div class="col-lg-12 text-center">
         <h1 class="mt-5"><?=$_['header']?></h1>
         <p class="lead"><?=$_['lead']?></p>
@@ -56,3 +58,5 @@ $(document).on({
 }, '#test-ajax');
 
 </script>
+
+<?php include PATH_VIEWS.'/inc/footer.php' ?>

@@ -36,7 +36,7 @@ class Router {
 	 */ 
 	public function parse() {
 		
-		// Check SEF URL  $_GET['url']
+		// Check SEF URL ( $_GET['url'] )
 
 		if ( isset($_GET['url']) ) {
 
@@ -201,18 +201,6 @@ class Router {
 			}
 
 		}
-/*
-Log::add([
-	'Requested URI' => htmlspecialchars( URL_ABS . $_SERVER['REQUEST_URI']),
-	'Parameters' => 'controller: '. $this->params[ 'controller' ] .', action: '. $this->params[ 'action' ]. ', response: '. $this->params[ 'response'] . ', params[1]: '. (isset($this->params['params'][ 1 ]) ? $this->params['params'][ 1 ] : 'null') . ', lang: '.  (isset($this->params[ 'lang' ]) ? $this->params[ 'lang' ] : 'null')
-]);	
-
-/*
-die(
-	'controller: '. $this->params[ 'controller' ] .', action: '. $this->params[ 'action' ]. ', response: '. $this->params[ 'response'] . ', params[1]: '. (isset($this->params['params'][ 1 ]) ? $this->params['params'][ 1 ] : 'null') . ', params[2]: '.  (isset($this->params['params'][ 2 ]) ? $this->params['params'][ 2 ] : 'null')
-
-);
-*/
 
 
 		// Return result array with parameters in the request:

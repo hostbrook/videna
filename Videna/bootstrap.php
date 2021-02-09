@@ -9,11 +9,11 @@ namespace Videna\Core;
 define('PATH_ROOT', dirname(__DIR__));
 
 // 2.1. Connect the framework configuration files
-$path = PATH_ROOT . '/Videna/fwk.config.php';
+$path = PATH_ROOT . '/Videna/configs/fwk.config.php';
 is_file($path) ? require_once $path : die('FATAL ERROR: Can\'t find framework config file');
 
 // 2.2. Connect the server configuration files
-$path = PATH_CONFIGS. '/srv.config.php'; 
+$path = PATH_ROOT. '/App/configs/srv.config.php'; 
 is_file($path) ? require_once $path : die('FATAL ERROR: Can\'t find server config file');
 
 // 3. Composer AutoLoad

@@ -18,7 +18,7 @@ class Users extends \Videna\Core\Database {
 				
 		$db = static::getDB();
 
-		$stmt = $db->query('SELECT id, name FROM users ORDER BY id');
+		$stmt = $db->query('SELECT id, name, email FROM users ORDER BY id');
 
 		return $stmt->fetchAll();
 
@@ -27,7 +27,7 @@ class Users extends \Videna\Core\Database {
 
 	/**
 	 * Find user by one or more criterias
-	 * @param $arguments is array [ 'DB field' => 'value' ]
+	 * @param $arguments is array, for example: [ 'email' => 'john@email.com' ]
 	 * @return array with user data if user exists
 	 * @return false if user DOES NOT exist
 	 */

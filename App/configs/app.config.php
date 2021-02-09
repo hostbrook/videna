@@ -5,28 +5,38 @@
 
 if ( !defined('PATH_ROOT') ) return null;
 
+/**
+ * Section: Custom Application constants
+ */
+
 
 return array(
 
-// OPTIONS REQUIRED BY FRAMEWORK
+/**
+ * Default Application settings are commented.
+ * Uncomment to overrided.
+ */
 
-'default controller' => 'Pages',
-'default action' => 'Index',
-'default view' => 'index',
+//'default controller' => 'Page',
+//'default action' => 'Index',
+//'default view' => 'index',
 
-'error action' => 'error',
-'error view' => 'error',
+//'error action' => 'error',
+//'error view' => 'error',
 
 //'custom router' => '\\App\\Libraries\\CustomRouter',
 //'url suffixes' => ['.htm', '.html'],
 
-'default language' => 'en',
+//'default language' => 'en',
 'supported languages' => [ 'en', 'ru' ],
 
 
-// OPTIONS REQUIRED BY APPLICATION
+/**
+ * Custom Application settings.
+ */
 
-// ... add your options here ...
+ // ...Some your settings here...
+
 
 
 ); // END app.config

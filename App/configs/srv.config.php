@@ -6,23 +6,30 @@
 
 if ( !defined('PATH_ROOT') ) exit ('Access denied.');
 
-// Server settings:
-ini_set('display_errors', 1);
-define('HTP_PROTOCOL', 'https');
-define('HOST_NAME', 'domain.com');
+/**
+ * Server settings
+ */
 
-// URLs, used in html to include images, scripts, etc.
-define('URL_ABS', HTP_PROTOCOL.'://'.HOST_NAME);
-define('URL_REL', '//'.HOST_NAME);
+if ( isset($_SERVER['REMOTE_ADDR']) and $_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
+  // LocalHost settings:
+  ini_set('display_errors', 1);
+  define('HTP_PROTOCOL', 'https');
+  define('HOST_NAME', $_SERVER['SERVER_NAME']);
+} 
+else {
+  // Production settings:
+  ini_set('display_errors', 0);
+  define('HTP_PROTOCOL', 'https');  
+  define('HOST_NAME', 'domain.com');
+}
 
 
 /**
  * Database settings
  */
 
-define('USE_DB', false);
+define('USE_DB', true);
 
-// Local Host settings:
 define('DB_NAME', 'videna');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');

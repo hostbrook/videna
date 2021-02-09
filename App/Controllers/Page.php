@@ -1,7 +1,7 @@
 <?php
 // <Application name>
-// File: /App/Controllers/Home.php
-// Desc: Static pages controller
+// File: /App/Controllers/Page.php
+// Desc: Static Page controller
 
 namespace App\Controllers;
 
@@ -10,26 +10,38 @@ use \Videna\Core\User;
 
 /**
  * This an example.
- * Class to maintain Static Pages requests  
+ * Class to maintain Static Page requests  
  */
-class Pages extends \Videna\Core\Controller {
+class Page extends \Videna\Core\Controller {
 
 	protected $viewArgs;
 	protected $view = false;
 
 
+	/**
+	 * This an example.
+	 * Action for user Log In
+	 * Call url: //domain.name/login
+	 */
 	public function actionLogin(){
 
 		if ($this->user['account'] == USR_UNREG) {
+			// Provide User ID as a parameter.
+			// At this example assume user with ID=2 is admin.
 			User::login(2);
 			$this->user = User::detect();	
 		}
 
-		$this->view = '/Pages/index';
+		$this->view = '/Page/index';
 
 	}
 
 
+	/**
+	 * This an example.
+	 * Action for user Log Out
+	 * Call url: //domain.name/logout
+	 */
 	public function actionLogout(){
 
 		if ($this->user['account'] > USR_UNREG) {
@@ -37,12 +49,17 @@ class Pages extends \Videna\Core\Controller {
 			$this->user = User::detect();	
 		}
 
-		$this->view = '/Pages/index';
+		$this->view = '/Page/index';
 
 	}
 
 
-	public function actionAdd(){
+	/**
+	 * This an example.
+	 * Action to add new user into Database
+	 * Call url: //domain.name/add-user
+	 */
+	public function actionAddUser(){
 
 		\App\Models\Users::addUser([
 			'name' => 'John',
@@ -51,7 +68,7 @@ class Pages extends \Videna\Core\Controller {
 			'token' => User::getToken()
 			]);
 
-		$this->view = '/Pages/index';
+		$this->view = '/Page/index';
 
 	}
 
@@ -67,19 +84,12 @@ class Pages extends \Videna\Core\Controller {
 		if ( isset($this->router['params']) ) {
 			$this->view = '/'. $this->router['view'] .'/'. implode('/', $this->router['params']);
 		}
-		elseif ( $this->router['view'] == 'Pages' )	{
-			$this->view = '/Pages/index';
+		elseif ( $this->router['view'] ==  $this->config['default controller'] )	{
+			$this->view = '/' .$this->config['default controller']. '/' .$this->config['default view'];
 		}
 		else $this->view = '/'. $this->router['view'];
 
-		if ( !is_file( PATH_VIEWS . $this->view  .'.php' ) ) {
-
-			$this->router['action'] =  $this->config['error action'];
-			$this->router['response'] = 404;
-			
-			$this->actionError();
-
-		}
+		//Log::add(['view'=>$this->view]);
 
 	}
 
@@ -95,8 +105,9 @@ class Pages extends \Videna\Core\Controller {
 	 */
 	public function actionError(){
 
-		$this->view = '/Pages/'. $this->config['error view'];
+		$this->view = '/' .$this->config['default controller']. '/'. $this->config['error view'];
 
+		// Check if Error view file exists.
 		if ( !is_file( PATH_VIEWS . $this->view  .'.php' ) ) {
 
 			Log::add([ 
@@ -116,8 +127,6 @@ class Pages extends \Videna\Core\Controller {
 	 */
 	protected function before() {
 
-		
-
 	}
 
 
@@ -127,8 +136,17 @@ class Pages extends \Videna\Core\Controller {
 	 */
 	protected function after() {
 
-		//$this->viewArgs['config'] = $this->config;
-		//$this->viewArgs['router'] = $this->router;
+
+		// Check if view file exists. If not -show 404 page.
+		if ( !is_file( PATH_VIEWS . $this->view  .'.php' ) ) {
+
+			$this->router['action'] =  $this->config['error action'];
+			$this->router['response'] = 404;
+			
+			$this->actionError();
+
+		}
+
 		$this->viewArgs['_'] = $this->lang->langArray;
 		$this->viewArgs['user'] = $this->user;
 
@@ -154,7 +172,7 @@ class Pages extends \Videna\Core\Controller {
 
 		$title = 'title ' . $this->view;	
 		if ( !isset($this->lang->langArray[$title]) ) {
-			$title = 'title /Pages/' . $this->config['default view'];
+			$title = 'title /' .$this->config['default controller']. '/' . $this->config['default view'];
 			return isset($this->lang->langArray[$title]) ? $this->lang->langArray[$title] : '';
 		}
 
@@ -176,7 +194,7 @@ class Pages extends \Videna\Core\Controller {
 		
 		$description = 'description ' . $this->view;	
 		if ( !isset($this->lang->langArray[$description]) ) {
-			$description = 'description /Pages/' . $this->config['default view'];
+			$description = 'description /' .$this->config['default controller']. '/' . $this->config['default view'];
 			return isset($this->lang->langArray[$description]) ? $this->lang->langArray[$description] : '';
 		}	
 
@@ -185,4 +203,4 @@ class Pages extends \Videna\Core\Controller {
 	}
 
 
-} // END class Pages 
+} // END class Page 
