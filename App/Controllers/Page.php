@@ -26,10 +26,10 @@ class Page extends \Videna\Core\Controller {
 	public function actionLogin(){
 
 		if ($this->user['account'] == USR_UNREG) {
-			// Provide User ID as a parameter.
-			// At this example assume user with ID=2 is admin.
-			User::login(2);
-			$this->user = User::detect();	
+			// Try user login by 'User::login(user_id)' where `user_id` is user ID in Database `users`.
+			// It returns 'false' if login unsuccessful or returns new user account data if successful.
+			// At this example assume the user with ID=2 is admin.
+			$this->user = User::login(2);
 		}
 
 		$this->view = '/Page/index';
@@ -45,8 +45,10 @@ class Page extends \Videna\Core\Controller {
 	public function actionLogout(){
 
 		if ($this->user['account'] > USR_UNREG) {
-			User::logout();
-			$this->user = User::detect();	
+			// Try user logout by 'User::logout()'
+			// It returns 'false' if logout unsuccessful
+			// Or returns new user account if logout successful
+			$this->user = User::logout();
 		}
 
 		$this->view = '/Page/index';
@@ -88,8 +90,6 @@ class Page extends \Videna\Core\Controller {
 			$this->view = '/' .$this->config['default controller']. '/' .$this->config['default view'];
 		}
 		else $this->view = '/'. $this->router['view'];
-
-		//Log::add(['view'=>$this->view]);
 
 	}
 

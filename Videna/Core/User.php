@@ -95,6 +95,8 @@ abstract class User {
 		// Update public key in cookies:
 		setcookie('public-key', self::getPublicKey(), $expires, '/', HOST_NAME, (HTP_PROTOCOL == 'https' ? true : false) );
 
+		return self::detect();
+
 	}
 
 
@@ -122,6 +124,8 @@ abstract class User {
 	
   		unset($_COOKIE['public-key']);
 		}
+
+		return ['account' => USR_UNREG];
 
 	}
 
