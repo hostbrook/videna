@@ -28,7 +28,7 @@ else {
  * Database settings
  */
 
-define('USE_DB', true);
+define('USE_DB', false);
 
 define('DB_NAME', 'videna');
 define('DB_USER', 'root');

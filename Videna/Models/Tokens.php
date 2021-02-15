@@ -1,9 +1,9 @@
 <?php
-// <Application name>
-// File: /App/Models/Tokens.php
-// Desc: Model to work with tokens
+// Videna Framework
+// File: /Videna/Models/Tokens.php
+// Desc: Model to work with table `tokens`
 
-namespace App\Models;
+namespace Videna\Models;
 
 use PDO;
 

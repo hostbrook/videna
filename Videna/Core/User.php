@@ -5,8 +5,8 @@
 
 namespace Videna\Core;
 
-use \App\Models\Users;
-use \App\Models\Tokens;
+use \Videna\Models\Users;
+use \Videna\Models\Tokens;
 
 abstract class User {
 

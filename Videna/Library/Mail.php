@@ -1,11 +1,14 @@
 <?php
 // Videna Framework
-// File: /App/Libraries/Mail.php
-// Desc: Send mail class
+// File: /Videna/Library/Mail.php
+// Desc: Pre-cooked class to send emails via PHPMailer and PHP mail() function
+
+namespace Videna\Library;
 
 use \PHPMailer\PHPMailer\PHPMailer;
 use \PHPMailer\PHPMailer\Exception;
 use \Videna\Core\Log;
+
 
 class Mail {
   

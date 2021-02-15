@@ -10,7 +10,7 @@ use \Videna\Core\Log;
 class Admin extends \App\Controllers\Page {
 
 	/**
-	 * This an example.
+	 * This is an example.
 	 * Filter before the each action
 	 */
 	protected function before() {

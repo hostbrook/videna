@@ -24,7 +24,7 @@ return array(
 //'error action' => 'error',
 //'error view' => 'error',
 
-//'custom router' => '\\App\\Libraries\\CustomRouter',
+//'custom router' => '\\App\\CustomRouter',
 //'url suffixes' => ['.htm', '.html'],
 
 //'default language' => 'en',

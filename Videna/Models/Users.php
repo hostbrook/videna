@@ -1,9 +1,9 @@
 <?php
-// <Application name>
-// File: /App/Models/User.php
-// Desc: Model to work with users
+// Videna Framework
+// File: /Videna/Models/Users.php
+// Desc: Model to work with table `users`
 
-namespace App\Models;
+namespace Videna\Models;
 
 use PDO;
 
