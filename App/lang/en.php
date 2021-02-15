@@ -26,53 +26,37 @@ return array(
  */
 
 'home' => 'Home',
-'news' => 'News',
+'pages' => 'Pages',
 'archive' => 'Archive',
 'language' => 'Language',
-'search' => 'Search',
+'login' => 'Login',
+'logout' => 'Logout',
 
 
 /**
  * Static Pages
  */
 
-// /Pages/index
+// /Page/index
 
-'title /Pages/index' => 'Bootstrap 4 Starter Template',
-'description /Pages/index' => 'Complete with pre-defined file paths and responsive navigation!',
+'title /Page/index' => 'Videna - Framework works good',
+'description /Page/index' => 'Videna - Framework works good',
 
-'header' => 'Bootstrap starter template',
-'lead' => 'Use this document as a way to quickly start any new project.',
+'header' => 'Framework works good!',
+'lead' => 'Now you can check Ajax and Router.',
 
-// /Pages/product-one
+// /Page/product
 
-'title /Pages/product-one' => 'Product One',
-'description /Pages/product-one' => 'Product One description!',
+'title /Page/product' => 'Product',
+'description /Page/product' => 'Product - description!',
 
 'product' => 'Product',
 
-// /Pages/product-one/sub-product-one
+// /Page/product-one/sub-product-one
 
-'title /Pages/product-one/sub-product-one' => 'Sub Product One',
-'description /Pages/product-one/sub-product-one' => 'Sub Product One description!',
+'title /Page/product/sub-product' => 'Sub Product',
+'description /Page/product/sub-product' => 'Sub Product - description!',
 
 'sub-product' => 'Sub Product',
-
-// /Spa/index
-
-'title /Spa/index' => 'Bootstrap 4 Starter Template',
-'description /Spa/index' => 'Complete with pre-defined file paths and responsive navigation!',
-
-// /Spa/product-one
-
-'title /Spa/product-one' => 'Product SPA',
-'description /Spa/product-one' => 'Product SPA description!',
-
-'product' => 'Product',
-
-// /Spa/product-one/sub-product-one
-
-'title /Spa/product-one/sub-product-one' => 'Sub Product SPA',
-'description /Spa/product-one/sub-product-one' => 'Sub Product SPA description!',
 
 ); // END array

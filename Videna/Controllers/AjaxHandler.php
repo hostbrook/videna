@@ -11,7 +11,7 @@ namespace Videna\Controllers;
 
 class AjaxHandler extends \Videna\Core\Controller {
 
-	private $viewArgs;
+	protected $viewArgs;
 	protected $view = false;
 
 

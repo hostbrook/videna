@@ -5,7 +5,7 @@
         <h1 class="mt-5"><?=$_['header']?></h1>
         <p class="lead"><?=$_['lead']?></p>
         <ul class="list-unstyled">
-          <li>Bootstrap 4.5.3</li>
+          <li>Bootstrap 5.0</li>
           <li>jQuery 3.5.1</li>
         </ul>
       </div>
@@ -22,9 +22,7 @@
 
     <div class="row ">
       <div class="col-lg-12 text-center border my-3 py-3" id="test-html-out">
-
-          <em>This block should be replaced with AJAX HTML response.</em>
-
+        <em>This block should be replaced with AJAX HTML response.</em>
       </div>
     </div>
 

@@ -26,47 +26,38 @@ return array(
  */
 
 'home' => 'Главная',
-'news' => 'Новости',
+'pages' => 'Страницы',
 'archive' => 'Архив',
 'language' => 'Язык',
-'search' => 'Поиск',
+'login' => 'Вход',
+'logout' => 'Выход',
 
 
 /**
  * Static Pages
  */
 
-// /Pages/index
+// /Page/index
   
-'title /Pages/index' => 'Bootstrap 4 Базовый шаблон',
-'description /Pages/index' => 'В комплекте с предопределенными путями к файлам и отзывчивой навигацией!',
+'title /Page/index' => 'Videna - Фреймворк работает!',
+'description /Page/index' => 'Videna - Фреймворк работает!',
 
-'header' => 'Bootstrap 4 Базовый шаблон',
-'lead' => 'Используйте этот шаблон как способ быстро начать любой новый проект.',
+'header' => 'Ура! Фреймворк работает!',
+'lead' => 'Протестируйте возможности Ajax и Роутер',
 
-// /Pages/product-one
+// /Page/product
 
-'title /Pages/product-one' => 'Продукт One',
-'description /Pages/product-one' => 'Продукт One описание!',
+'title /Page/product' => 'Продукт',
+'description /Page/product' => 'Продукт - описание!',
 
 'product' => 'Продукт',
 
-// /Pages/product-one/sub-product-one
+// /Page/product/sub-product
 
-'title /Pages/product-one/sub-product-one' => 'Под-продукт One',
-'description /Pages/product-one/sub-product-one' => 'Под-продукт One описание!',
+'title /Page/product/sub-product' => 'Под-продукт',
+'description /Page/product/sub-product' => 'Под-продукт - описание!',
 
 'sub-product' => 'Под-продукт',
-
-// /Spa/product-one
-
-'title /Spa/product-one' => 'Продукт SPA',
-'description /Spa/product-one' => 'Продукт SPA описание!',
-
-// /Spa/product-one/sub-product-one
-
-'title /Spa/product-one/sub-product-one' => 'Под-продукт SPA',
-'description /Spa/product-one/sub-product-one' => 'Под-продукт SPA описание!',
 
 
 ); // END array
