@@ -1,3 +1,17 @@
-/logs/**
+# Ignore files in /tmp directory
 /tmp/**
+
+# Ignore dependencies in /vendor directory
 /vendor/**
+
+# Ignore Logs
+*.log
+
+# Ignore the build directory
+/dist
+
+# The file containing environment variables 
+.env
+
+# Ignore IDE specific files
+.vscode/
