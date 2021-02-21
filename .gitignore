@@ -1,6 +1,6 @@
 # Ignore files in /tmp directory
 tmp/*
-!tmp/.gitkeep
+!tmp/.htaccess
 
 # Ignore dependencies in /vendor directory
 vendor/*
@@ -16,4 +16,4 @@ vendor/*
 .env
 
 # Ignore IDE specific files
-.vscode/
+.vscode/git
