@@ -1,8 +1,8 @@
 # Ignore files in /tmp directory
-#/tmp/**
+/tmp/**
 
 # Ignore dependencies in /vendor directory
-#/vendor/**
+/vendor/**
 
 # Ignore Logs
 *.log
