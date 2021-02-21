@@ -5,7 +5,7 @@
 #/vendor/**
 
 # Ignore Logs
-#*.log
+*.log
 
 # Ignore the build directory
 /dist
