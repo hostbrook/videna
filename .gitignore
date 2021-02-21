@@ -1,5 +1,6 @@
 # Ignore files in /tmp directory
-/tmp/**
+/tmp/*
+!logs/.gitkeep
 
 # Ignore dependencies in /vendor directory
 /vendor/**
