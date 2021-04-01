@@ -29,7 +29,7 @@ class Lang {
 		-------------------------------------------------------*/
 
 		if ( $lang ) {
-
+			
 			$this->setCode($lang);
 
 		} 
@@ -44,11 +44,9 @@ class Lang {
 			}
 			
 			// [2] (Medium) priority: language from current user coockies (if exists):
-			if (!(isset($_SERVER['HTTP_X_REQUESTED_WITH']) and $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')) {
-				if ( isset($_COOKIE['lang']) ) {
-					$lang = $_COOKIE['lang'];
-					if ( in_array($lang, $config['supported languages']) ) $this->setCode($lang);
-				}
+			if ( isset($_COOKIE['lang']) ) {
+				$lang = $_COOKIE['lang'];
+				if ( in_array($lang, $config['supported languages']) ) $this->setCode($lang);
 			}
 
 		}
