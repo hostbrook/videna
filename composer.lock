@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cf2d5312e5eb1e7015d6321ebcff1ea",
+    "content-hash": "7be5e724b2a2c229b616e0b53d018ef4",
     "packages": [
+        {
+            "name": "hostbrook/videna-fwk",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hostbrook/videna-fwk.git",
+                "reference": "a3625607452aee99f19e663f94f90258d34174e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/a3625607452aee99f19e663f94f90258d34174e9",
+                "reference": "a3625607452aee99f19e663f94f90258d34174e9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Videna\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "HostBrook",
+                    "email": "support@hostbrook.com",
+                    "homepage": "https://hostbrook.com"
+                }
+            ],
+            "description": "Videna PHP framework core",
+            "support": {
+                "issues": "https://github.com/hostbrook/videna-fwk/issues",
+                "source": "https://github.com/hostbrook/videna-fwk/tree/1.0"
+            },
+            "time": "2021-05-26T22:37:04+00:00"
+        },
         {
             "name": "phpmailer/phpmailer",
             "version": "v6.2.0",

@@ -3,7 +3,6 @@
 // File: /App/configs/app.config.php
 // Desc: Application config file
 
-if ( !defined('PATH_ROOT') ) return null;
 
 /**
  * Section: Custom Application constants

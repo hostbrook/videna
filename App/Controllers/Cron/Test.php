@@ -11,10 +11,10 @@ use \Videna\Core\Log;
  * This is an example of CRON job
  * 
  * To run in OpenServer:
- * "%progdir%\modules\php\%phpdriver%\php-win.exe" -c "%progdir%\modules\php\%phpdriver%\php.ini" -q -f "%sitedir%\videna\videna\cron.php" "Cron\Test" "Argument 2"
+ * "%progdir%\modules\php\%phpdriver%\php-win.exe" -c "%progdir%\modules\php\%phpdriver%\php.ini" -q -f "%sitedir%\videna\Videna\bootstrap.php" "Cron\Test" "Argument 2"
  * 
  * To run at shared linux hosting:
- * /usr/local/bin/php -q /home/public_html/videna/cron.php "Cron\Test" "Argument 2"
+ * /usr/local/bin/php -q /home/public_html/Videna/bootstrap.php "Cron\Test" "Argument 2"
  *
  */
 class Test extends \Videna\Controllers\CronJob {

@@ -1,7 +1,5 @@
 <?php
 
-if ( !defined('PATH_ROOT') ) exit ("Access denied.");
-
 return array(
 
 /**

@@ -4,8 +4,6 @@
 // Desc: Server config file
 
 
-if ( !defined('PATH_ROOT') ) exit ('Access denied.');
-
 /**
  * Server settings
  */

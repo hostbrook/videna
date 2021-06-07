@@ -3,7 +3,7 @@
 // File: /Videna/Library/Mail.php
 // Desc: Pre-cooked class to send emails via PHPMailer and PHP mail() function
 
-namespace Videna\Library;
+namespace App\Libraries;
 
 use \PHPMailer\PHPMailer\PHPMailer;
 use \PHPMailer\PHPMailer\Exception;
@@ -18,15 +18,15 @@ class Mail {
   public function __construct(){
 
     // Connect app config file
-    $file_path = PATH_ROOT . 'App/configs/mail.config.php';
+    $file_path =  'App/configs/mail.config.php';
     if ( is_file($file_path) ) {
       include_once $file_path;
     }
     else Log::add( ["FATAL ERROR" => "Mail config file '$file_path' not found"], "FATAL ERROR: Mail config file not found.");
     
-    $file_path = PATH_ROOT . '/App/Views/mail/header.html';
+    $file_path =  'App/Views/mail/header.html';
     is_file($file_path) ? $this->set([ 'header' => file_get_contents($file_path) ]) : $this->set([ 'header' => '' ]);
-    $file_path = PATH_ROOT . '/App/Views/mail/footer.html';
+    $file_path =  'App/Views/mail/footer.html';
     is_file($file_path) ? $this->set([ 'footer' => file_get_contents($file_path) ]) : $this->set([ 'footer' => '' ]);
 
     $this->phpmailer = new PHPMailer(true);

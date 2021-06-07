@@ -4,8 +4,6 @@
 // Desc: PHPMailer config file
 
 
-if ( !defined('PATH_ROOT') ) exit ('Access denied.');
-
 /**
  * Default mail settings
  */

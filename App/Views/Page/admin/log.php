@@ -1,4 +1,4 @@
-<?php include PATH_VIEWS.'/inc/header.php' ?>
+<?php include PATH_VIEWS . 'inc/header.php' ?>
 
 		<div class="row">
       <div class="col-lg-12 text-center">
@@ -16,4 +16,4 @@
       </div>
     </div>
 
-<?php include PATH_VIEWS.'/inc/footer.php' ?>
+<?php include PATH_VIEWS . 'inc/footer.php' ?>
