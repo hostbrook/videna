@@ -4,13 +4,9 @@ PHP MVC Framework, developed by HostBrook Ltd. [https://hostbrook.com](https://h
 This fast and lightweight framework was developed to use at shared hostings for small-size projects.
 
 To start use Videna Framework, you need:
-1. Clone it and your localhost:
+1. Via Composer install the Videna demo project in the folder _above_ your project root:
 ```shell
-git clone https://github.com/hostbrook/videna.git
+composer create-project hostbrook/videna your-project-name
 ```
-2. Update dependencies via composer:
-```shell
-composer update
-```
-3. Make your application
-4. Upload your application to the web hosting.
+2. Make your application
+3. Upload your application to the web hosting.

@@ -2,7 +2,7 @@
     "name": "hostbrook/videna",
     "description": "Videna PHP Framework",
     "type": "project",
-    "license": "MIT",
+    "license": "GNU GENERAL PUBLIC LICENSE",
     "authors": [
         {
             "name": "HostBrook",
