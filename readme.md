@@ -7,7 +7,7 @@ This fast and lightweight MVC framework was developed to use at the shared hosti
 
 To start use Videna Framework, you need:
 
-1. Via Composer install the Videna demo project in the folder _above_ your project root:
+1. Via Composer, install the Videna demo project in the folder *above* your project root:
 ```shell
 composer create-project hostbrook/videna your-project-name
 ```
@@ -16,9 +16,14 @@ The command above will:
 - upload Videna demo project ath the folder "your-project-name";
 - install all required dependencies.
 
-2. Make your application
+2. Update all required dependencies:
+```shell
+composer update
+```
 
-3. Upload your application to the web hosting.
+3. Make your application
+
+4. Upload your application to the web hosting.
 
 ## Upgrading
 
