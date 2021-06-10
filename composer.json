@@ -11,6 +11,9 @@
         }
     ],
     "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true
+    },
     "require": {
         "php": ">=5.6",
         "phpmailer/phpmailer": "^6.2",

@@ -1,23 +1,39 @@
 AddDefaultCharset utf-8
 AddCharset utf-8 *
 
+# Disable directory browsing:
+Options All -Indexes
+Options -Multiviews
+
 # Main file in root directory:
 DirectoryIndex index.php
 
 # Let PHP in HTML files:
 #AddHandler application/x-httpd-php .html
 
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+
+	# Redirect: www.hostname/uri  ->  https://hostname/uri
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [R=301,L]
+
+	# Redirect: http:// -> https://
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	# Checks to see if the user is attempting to access a valid file,
+	# such as an image or css document, if this isn't true it sends the
+	# request to the front controller, index.php
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.+)$ index.php?url=$1 [L,QSA]
+	
+</IfModule>
+
 ErrorDocument 400 /index.php?action=error&response=400
 ErrorDocument 401 /index.php?action=error&response=401
 ErrorDocument 403 /index.php?action=error&response=403
 ErrorDocument 404 /index.php?action=error&response=404
 ErrorDocument 500 /index.php?action=error&response=500
-
-<IfModule mod_rewrite.c>
- 	Options -Multiviews
-	RewriteEngine On
-	RewriteBase /public
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.+)$ index.php?url=$1 [L,QSA]
-</IfModule>
