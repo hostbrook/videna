@@ -7,14 +7,14 @@ This fast and lightweight MVC framework was developed to use at the shared hosti
 
 **Step 1.** Via Composer, install the Videna demo project in the folder **above** your project root at your local host:
 ```shell
-composer create-project hostbrook/videna <project-name>
+composer create-project hostbrook/videna project_name
 ```
 The command above will:
-- create <project-name> folder (if it does not exist);
-- upload Videna demo project at the folder <project-name>;
+- create 'project_name' folder (if it does not exist);
+- upload Videna demo project at the folder 'project_name';
 - install all required dependencies.
 
-_Note: the <project-name> folder is a project root, but you need to setup at your hosting the Document Root: <project-name>/public/_
+_Note: the 'project_name' folder is a project root, but you need to setup at your hosting the Document Root: 'project_name'/public/_
 
 **Step 2.** Update all required dependencies:
 ```shell
