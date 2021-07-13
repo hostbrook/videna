@@ -7,6 +7,7 @@ namespace App\Controllers;
 
 use \Videna\Core\Log;
 use \Videna\Core\User;
+use \HostBrook\SypexGeo\SypexGeo;
 
 /**
  * This is an example.
@@ -14,7 +15,17 @@ use \Videna\Core\User;
  */
 class Page extends \Videna\Controllers\StaticPage {
 
+	/**
+	 * Index action is a default action, keeps the route map:
+	 * /<controller>/.../<controller>/<action>/<param_1>/../<param_n>
+	 * - All parameters in the URL are not required
+	 * - Path to the page consists of parameters <controller> and <param>
+	 */
+	public function actionIndex(){
 
+		parent::actionIndex();
+
+	}
 
 	/**
 	 * This is an example.

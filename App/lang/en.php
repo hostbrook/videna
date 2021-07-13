@@ -35,25 +35,25 @@ return array(
  * Static Pages
  */
 
-// /Page/index
+// Page/index
 
-'title /Page/index' => 'Videna - Framework works good',
-'description /Page/index' => 'Videna - Framework works good',
+'title Page/index' => 'Videna - Framework works good',
+'description Page/index' => 'Videna - Framework works good',
 
 'header' => 'Framework works good!',
 'lead' => 'Now you can check Ajax and Router.',
 
-// /Page/product
+// Page/product
 
-'title /Page/product' => 'Product',
-'description /Page/product' => 'Product - description!',
+'title Page/product' => 'Product',
+'description Page/product' => 'Product - description!',
 
 'product' => 'Product',
 
-// /Page/product-one/sub-product-one
+// Page/product-one/sub-product-one
 
-'title /Page/product/sub-product' => 'Sub Product',
-'description /Page/product/sub-product' => 'Sub Product - description!',
+'title Page/product/sub-product' => 'Sub Product',
+'description Page/product/sub-product' => 'Sub Product - description!',
 
 'sub-product' => 'Sub Product',
 

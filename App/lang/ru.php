@@ -35,25 +35,25 @@ return array(
  * Static Pages
  */
 
-// /Page/index
+// Page/index
   
-'title /Page/index' => 'Videna - Фреймворк работает!',
-'description /Page/index' => 'Videna - Фреймворк работает!',
+'title Page/index' => 'Videna - Фреймворк работает!',
+'description Page/index' => 'Videna - Фреймворк работает!',
 
 'header' => 'Ура! Фреймворк работает!',
 'lead' => 'Протестируйте возможности Ajax и Роутер',
 
-// /Page/product
+// Page/product
 
-'title /Page/product' => 'Продукт',
-'description /Page/product' => 'Продукт - описание!',
+'title Page/product' => 'Продукт',
+'description Page/product' => 'Продукт - описание!',
 
 'product' => 'Продукт',
 
-// /Page/product/sub-product
+// Page/product/sub-product
 
-'title /Page/product/sub-product' => 'Под-продукт',
-'description /Page/product/sub-product' => 'Под-продукт - описание!',
+'title Page/product/sub-product' => 'Под-продукт',
+'description Page/product/sub-product' => 'Под-продукт - описание!',
 
 'sub-product' => 'Под-продукт',
 
