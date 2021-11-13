@@ -6,6 +6,8 @@
 namespace App\Controllers\Page;
 
 use \Videna\Core\Log;
+use \Videna\Core\Router;
+use \Videna\Core\Config;
 
 class Admin extends \App\Controllers\Page {
 
@@ -17,19 +19,20 @@ class Admin extends \App\Controllers\Page {
 
 		if ($this->user['account'] < USR_ADMIN) {
 
-			$this->router['action'] =  $this->config['error action'];
-			$this->router['response'] = 403;
+			Router::$action = Config::get('error action');
+			Router::$response = 403;
 
 		}
 
 	}
+	
 	
 	public function actionLog() {
 		
 		$log = Log::read();
 		$this->viewArgs['log'] = $log;
 
-		$this->view = '/Page/admin/log';
+		Router::$view = '/Page/admin/log';
 		//$this->actionIndex();
 	}
 
@@ -38,7 +41,7 @@ class Admin extends \App\Controllers\Page {
 		
 		$this->viewArgs['logDeleteResult'] = Log::delete();
 
-		$this->view = '/Page/admin/log-delete';
+		Router::$view = '/Page/admin/log-delete';
 
 	}
 

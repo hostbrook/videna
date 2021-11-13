@@ -23,8 +23,6 @@ class Page extends \Videna\Controllers\StaticPage {
 	 */
 	public function actionIndex(){
 
-		parent::actionIndex();
-
 	}
 
 	/**
@@ -41,7 +39,7 @@ class Page extends \Videna\Controllers\StaticPage {
 			$this->user = User::login(2);
 		}
 
-		$this->view = '/Page/index';
+		Router::$view = '/Page/index';
 
 	}
 
@@ -60,7 +58,7 @@ class Page extends \Videna\Controllers\StaticPage {
 			$this->user = User::logout();
 		}
 
-		$this->view = '/Page/index';
+		Router::$view = '/Page/index';
 
 	}
 
@@ -79,7 +77,7 @@ class Page extends \Videna\Controllers\StaticPage {
 			'token' => User::getToken()
 			]);
 
-		$this->view = '/Page/index';
+		Router::$view = '/Page/index';
 
 	}
 
