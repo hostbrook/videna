@@ -1,7 +1,7 @@
 # Videna PHP Framework
 
-PHP MVC Framework, developed by [HostBrook Ltd](https://hostbrook.com).
-This fast and lightweight MVC framework was developed to use at the shared hostings for small-size projects.
+PHP MVC Micro-Framework, developed by [HostBrook Ltd](https://hostbrook.com).
+This fast and lightweight MVC framework was developed to use at the shared hostings for small-size projects and matches PSR-0, PSR-1, PSR-2 and PSR-4.
 
 ## Installation & Set Up
 

@@ -1,13 +1,19 @@
 <?php
+
 /**
+ * <Application name>
+ * 
  * Application Environment
  * Overrides the default application "environment".
+ * 
+ * @license https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @author HostBrook <support@hostbrook.com>
  */
 
 
 /**
-* Production host environment
-*/
+ * Production host environment
+ */
 
 
 // PHP config settings:
@@ -22,7 +28,7 @@ ini_set('display_errors', 0);
  */
 
 date_default_timezone_set('America/Edmonton');
-define('HTP_PROTOCOL', 'https');  
+define('HTP_PROTOCOL', 'https');
 define('HOST_NAME', 'domain.com');
 
 
