@@ -5,7 +5,7 @@
  * 
  * The example of default page controller maintain Static Page requests.
  * 
- * @license https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @author HostBrook <support@hostbrook.com>
  */
 
@@ -52,7 +52,7 @@ class Page extends \Videna\Controllers\StaticPage
         $mail->Body .= View::include('mail/footer.php');
 
         $mail->send();
-        Log::add(['Mail successfully sent']);
+        Log::add('Mail successfully sent');
     }
 
     /**

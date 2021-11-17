@@ -5,7 +5,7 @@
  * 
  * The example of Ajax requests controller
  * 
- * @license https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
+ * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @author HostBrook <support@hostbrook.com>
  */
 
