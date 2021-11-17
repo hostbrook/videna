@@ -7,6 +7,7 @@ namespace App\Controllers;
 
 use \Videna\Core\Router;
 use \Videna\Core\Config;
+use \Videna\Core\View;
 
 /**
  * This is an example.
@@ -25,12 +26,14 @@ class Ajax extends \Videna\Controllers\AjaxHandler {
 		// For loggined user show users name,
 		// For unregistered user show name in parameter `name`:
 		if ($this->user['account'] == USR_UNREG) {
-			$name = Router::$params['name'];
+			$name = Router::get('name');
 		}
 		else $name = $this->user['name'];
 
 		// Put in 'txt' test phrase:
-		$this->viewArgs['ajax']['text'] = 'Text test phrase: My name is ' . $name . ' and I\'m '. Router::$params['age'] . ' years old.';
+		View::set([
+			'text' => 'Text test phrase: My name is ' . $name . ' and I\'m '. Router::get('age') . ' years old.'
+		]);
 
 		// Put in 'html' view '/Ajax/test':
 		Router::$view = '/Ajax/test';

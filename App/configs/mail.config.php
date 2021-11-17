@@ -8,35 +8,36 @@
  * Default mail settings
  */
 
-define('EMAIL_FROM', 'mail@domain.com');
-define('NAME_FROM', 'Name');
-define('MAIL_SUBJECT', 'Subject');
+define('DEF_EMAIL_FROM', 'mail@domain.com');
+define('DEF_NAME_FROM', 'Name Lastname');
 
-/**
- * Mail server settings
- */
 
-define('SMTP_DEBUG', 0); 
-define('SMTP_HOST', '');
-define('SMTP_SECURE', 'SSL');
-define('SMTP_PORT', 587);
-define('SMTP_AUTH', true);
-define('SMTP_USERNAME', '');
-define('SMTP_PASSWORD', '');
+return array(
+	
+	//Enable SMTP debugging
+	// 0 = off (for production use)
+	// 1 = client messages
+	// 2 = client and server messages
+	'SMTPDebug' => 0,
 
-/**
- * DKIM settings
- * Keys are generated here: https://tools.socketlabs.com/dkim/generator
- * Check DKIM here: https://dmarcly.com/tools/dkim-record-checker
- * Check mail here: https://www.mail-tester.com/
- */
+	// Mail server settings
+	'Host' => 'domain.com',
+	'Port' => 587,
+	'SMTPAuth' => true,
+	'Username' => DEF_EMAIL_FROM,
+	'Password' => '',
+	'SMTPSecure' => 'SSL',
 
-define('DKIM_DOMAIN', 'domain.com');
-define('DKIM_SELECTOR', 'selector');
-define('DKIM_PRIVATE_KEY', '-----BEGIN RSA PRIVATE KEY-----
-...
-s o m e  p r i v a t e  k e y 
-...
------END RSA PRIVATE KEY-----');
+  // DKIM settings
+  // Keys are generated here: https://tools.socketlabs.com/dkim/generator
+  // Check DKIM here: https://dmarcly.com/tools/dkim-record-checker
+  // Check mail here: https://www.mail-tester.com/
+	'DKIM_domain' => 'domain.com',
+	'DKIM_selector' => 'selector',
+	'DKIM_identity' => DEF_EMAIL_FROM,
+	//'DKIM_private' => 'path/to/your/private.key',
+	'DKIM_private_string' => '-----BEGIN RSA PRIVATE KEY-----
+... s o m e   p r i v a t e  k e y ...
+-----END RSA PRIVATE KEY-----'
 
-// END mail.config
+);

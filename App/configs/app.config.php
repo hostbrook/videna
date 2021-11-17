@@ -13,17 +13,13 @@ return array(
 
 /**
  * Default Application settings are commented.
- * Uncomment to overrided.
+ * Uncomment to override.
  */
 
 //'default controller' => 'Page',
 //'default action' => 'Index',
 //'default view' => 'index',
 
-//'error action' => 'error',
-//'error view' => 'error',
-
-//'custom router' => '\\App\\CustomRouter',
 //'url suffixes' => ['.htm', '.html'],
 
 //'default language' => 'en',

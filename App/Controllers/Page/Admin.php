@@ -9,7 +9,8 @@ use \Videna\Core\Log;
 use \Videna\Core\Router;
 use \Videna\Core\Config;
 
-class Admin extends \App\Controllers\Page {
+class Admin extends \Videna\Controllers\StaticPage {
+
 
 	/**
 	 * This is an example.
@@ -17,16 +18,16 @@ class Admin extends \App\Controllers\Page {
 	 */
 	protected function before() {
 
-		if ($this->user['account'] < USR_ADMIN) {
-
-			Router::$action = Config::get('error action');
-			Router::$response = 403;
-
-		}
+		if ($this->user['account'] < USR_ADMIN)  $this->actionError(403);
+		
 
 	}
 	
-	
+
+	/**
+	 * This is an example.
+	 * Show log file
+	 */
 	public function actionLog() {
 		
 		$log = Log::read();
@@ -37,6 +38,10 @@ class Admin extends \App\Controllers\Page {
 	}
 
 
+	/**
+	 * This is an example.
+	 * Delete log file
+	 */
 	public function actionLogDelete() {
 		
 		$this->viewArgs['logDeleteResult'] = Log::delete();

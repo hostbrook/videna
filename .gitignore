@@ -1,19 +1,16 @@
 # Ignore files in /tmp directory
 tmp/*
-!tmp/.htaccess
 
 # Ignore dependencies in /vendor directory
 vendor/*
 !vendor/.gitkeep
 
 # Ignore Logs
+log/*
 *.log
 
-# Ignore the build directory
-/dist
-
 # The file containing environment variables 
-.env
+config/env.php
 
 # Ignore IDE specific files
 .vscode/git

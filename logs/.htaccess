@@ -1,5 +1,0 @@
-Options All -Indexes
-<Files "*">
-Order allow,deny 
-Deny from all 
-</Files>

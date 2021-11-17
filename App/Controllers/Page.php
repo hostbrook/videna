@@ -7,7 +7,7 @@ namespace App\Controllers;
 
 use \Videna\Core\Log;
 use \Videna\Core\User;
-use \HostBrook\SypexGeo\SypexGeo;
+use \Videna\Core\Mail;
 
 /**
  * This is an example.
@@ -22,6 +22,36 @@ class Page extends \Videna\Controllers\StaticPage {
 	 * - Path to the page consists of parameters <controller> and <param>
 	 */
 	public function actionIndex(){
+
+	}
+
+
+	/**
+	 * This is an example.
+	 * Action to send mail
+	 */
+	public function actionSendMail() {
+
+		if ($this->user['account'] < USR_ADMIN)  $this->actionError(403);
+
+		$mail = new Mail();
+		$mail->Subject = "Test email from videna";
+    $mail->addAddress('dzyanis@hotmail.com', 'Dzyanis'); 
+
+    $mail->Body = $mail->header;
+    $mail->Body .= "<p>HTML message from Videna Framework.</p>";
+    $mail->Body .= $mail->footer; 
+		$mail->AltBody = "Text message from Videna Framework.";  
+
+    try {
+      $mail->send();
+			Log::add(['Mail successfully sent']);   
+    } catch (Exception $e) {
+      log::gi()->add([ 
+        "Error: Can't send mail",
+        "PHPMailer response: ". $mail->ErrorInfo
+      ]);      
+    }
 
 	}
 
