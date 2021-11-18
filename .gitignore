@@ -6,11 +6,11 @@ vendor/*
 !vendor/.gitkeep
 
 # Ignore Logs
-log/*
+logs/*
 *.log
 
 # Ignore file containing environment variables 
-configs/env.php
+App/configs/env.php
 
 # Ignore IDE specific files
 .vscode/git
