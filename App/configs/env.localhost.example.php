@@ -44,7 +44,6 @@ define('APP_DEBUG', true);
  */
 
 define('USE_DB', false);
-
 define('DB_NAME', 'videna');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');

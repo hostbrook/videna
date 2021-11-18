@@ -9,8 +9,8 @@ vendor/*
 log/*
 *.log
 
-# The file containing environment variables 
-config/env.php
+# Ignore file containing environment variables 
+configs/env.php
 
 # Ignore IDE specific files
 .vscode/git

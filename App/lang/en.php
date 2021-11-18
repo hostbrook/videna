@@ -21,6 +21,7 @@ return array(
     'title response 403' => 'Error 403: Forbidden',
     'title response 404' => 'Error 404: Not Found',
     'title response 500' => 'Error 500: Internal Server Error',
+
     'description response 400' => 'The request cannot be fulfilled due to bad syntax.',
     'description response 401' => 'Authentication credentials were missing or incorrect.',
     'description response 403' => 'The request is understood, but it has been refused or access is not allowed.',

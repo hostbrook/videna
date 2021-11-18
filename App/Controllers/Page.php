@@ -67,10 +67,10 @@ class Page extends \Videna\Controllers\StaticPage
             // Try user login by 'User::login(user_id)' where `user_id` is user ID in Database `users`.
             // It returns 'false' if login unsuccessful or returns new user account data if successful.
             // At this example assume the user with ID=2 is admin.
-            $this->user = User::login(2);
+            $this->user = User::login(1);
         }
 
-        Router::$view = '/Page/index';
+        $this->redirect('/');
     }
 
 
@@ -89,7 +89,7 @@ class Page extends \Videna\Controllers\StaticPage
             $this->user = User::logout();
         }
 
-        Router::$view = '/Page/index';
+        $this->redirect('/');
     }
 
 
