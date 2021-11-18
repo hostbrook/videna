@@ -6,8 +6,9 @@ vendor/*
 !vendor/.gitkeep
 
 # Ignore Logs
-logs/*
 *.log
+logs/*
+!logs/.gitkeep
 
 # Ignore file containing environment variables 
 App/configs/env.php
