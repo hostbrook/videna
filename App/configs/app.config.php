@@ -26,7 +26,7 @@ return array(
     //'default action' => 'Index',
     //'default view' => 'index',
 
-    //'url suffixes' => ['.htm', '.html'],
+    //'url suffixes' => ['.htm', '.html', '.php'],
 
     //'default language' => 'en',
     'supported languages' => ['en', 'ru'],
