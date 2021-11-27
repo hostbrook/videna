@@ -12,6 +12,9 @@ This fast and lightweight MVC framework was developed to use at the shared hosti
 - Multi-language support.
 - Super light: 57 kB size of framework core.
 
+The framework's landing page is a clone of this repository: [https://videna.hostbrook.com](https://videna.hostbrook.com)
+The framework's documantation: [https://github.com/hostbrook/videna/wiki](https://github.com/hostbrook/videna/wiki)
+
 ## Installation & Set Up
 
 **Step 1.** Via Composer, install the Videna demo project in the folder **above** your project root at your local host:

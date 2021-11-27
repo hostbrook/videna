@@ -3,7 +3,7 @@
 /**
  * <Application name>
  * 
- * The example of Admin page
+ * The example of Dashboard page
  * 
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @author HostBrook <support@hostbrook.com>
@@ -13,10 +13,17 @@ namespace App\Controllers\Page;
 
 use \Videna\Core\Log;
 use \Videna\Core\Router;
-use \Videna\Core\Config;
 
-class Admin extends \Videna\Controllers\StaticPage
+class Dashboard extends \Videna\Controllers\StaticPage
 {
+
+    /**
+     * Index action is a default action
+     */
+    public function actionIndex()
+    {
+    }
+
 
     /**
      * This is an example.
@@ -25,8 +32,9 @@ class Admin extends \Videna\Controllers\StaticPage
      */
     protected function before()
     {
+        parent::before();
 
-        if ($this->user['account'] < USR_ADMIN)  $this->actionError(403);
+        if ($this->user['account'] < USR_REG)  $this->actionError(403);
     }
 
 

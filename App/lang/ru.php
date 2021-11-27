@@ -34,11 +34,11 @@ return array(
      */
 
     'home' => 'Главная',
-    'pages' => 'Страницы',
-    'archive' => 'Архив',
+    'docs' => 'Документация',
     'language' => 'Язык',
     'login' => 'Вход',
     'logout' => 'Выход',
+    'dashboard' => 'Панель управления',
 
 
     /**
@@ -47,25 +47,17 @@ return array(
 
     // Page/index
 
-    'title Page/index' => 'Videna - Фреймворк работает!',
-    'description Page/index' => 'Videna - Фреймворк работает!',
+    'title Page/index' => 'Videna - PHP MVC Микро-фреймворк',
+    'description Page/index' => 'Videna - PHP MVC Микро-фреймворк',
 
-    'header' => 'Ура! Фреймворк работает!',
-    'lead' => 'Протестируйте возможности Ajax и Роутер',
+    'header' => 'Быстрый, Простой, Лёгкий.',
+    'lead' => 'PHP MVC Микро-фреймворк Videna разработан для небольших проектов на виртуальных хостингах.',
+    'get started' => 'С чего начать',
 
-    // Page/product
 
-    'title Page/product' => 'Продукт',
-    'description Page/product' => 'Продукт - описание!',
+    // Page/dashboard
 
-    'product' => 'Продукт',
-
-    // Page/product/sub-product
-
-    'title Page/product/sub-product' => 'Под-продукт',
-    'description Page/product/sub-product' => 'Под-продукт - описание!',
-
-    'sub-product' => 'Под-продукт',
-
+    'title Page/dashboard' => 'Панель управления - Videna',
+    'description Page/dashboard' => 'Панель управления - Videna',
 
 );

@@ -55,24 +55,6 @@ class Page extends \Videna\Controllers\StaticPage
         Log::add('Mail successfully sent');
     }
 
-    /**
-     * This is an example action for user Log In
-     * Call url: //domain.name/login
-     * @return void
-     */
-    public function actionLogin()
-    {
-
-        if ($this->user['account'] == USR_UNREG) {
-            // Try user login by 'User::login(user_id)' where `user_id` is user ID in Database `users`.
-            // It returns 'false' if login unsuccessful or returns new user account data if successful.
-            // At this example assume the user with ID=2 is admin.
-            $this->user = User::login(1);
-        }
-
-        $this->redirect('/');
-    }
-
 
     /**
      * This is an example action for user Log Out
@@ -90,24 +72,5 @@ class Page extends \Videna\Controllers\StaticPage
         }
 
         $this->redirect('/');
-    }
-
-
-    /**
-     * This is an example action to add new user into Database
-     * Call url: //domain.name/add-user
-     * @return void
-     */
-    public function actionAddUser()
-    {
-
-        \Videna\Models\Users::addUser([
-            'name' => 'John',
-            'lastname' => 'Malkovich',
-            "email" => 'email@domain.com',
-            'token' => User::getToken()
-        ]);
-
-        Router::$view = '/Page/index';
     }
 }

@@ -1,9 +1,13 @@
 <?php
+
 /**
+ * Application main gate.
  * Videna Framework
- * File: /public/index.php
- * Desc: Application main gate.
+ * 
  * Note: Don't change this file!
+ * 
+ * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+ * @author HostBrook <support@hostbrook.com>
  */
 
 

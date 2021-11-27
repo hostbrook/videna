@@ -34,11 +34,11 @@ return array(
      */
 
     'home' => 'Home',
-    'pages' => 'Pages',
-    'archive' => 'Archive',
+    'docs' => 'Documentation',
     'language' => 'Language',
     'login' => 'Login',
     'logout' => 'Logout',
+    'dashboard' => 'Dashboard',
 
 
     /**
@@ -47,24 +47,16 @@ return array(
 
     // Page/index
 
-    'title Page/index' => 'Videna - Framework works good',
-    'description Page/index' => 'Videna - Framework works good',
+    'title Page/index' => 'Videna - PHP MVC Micro-Framework',
+    'description Page/index' => 'Videna - PHP MVC Micro-Framework',
 
-    'header' => 'Framework works good!',
-    'lead' => 'Now you can check Ajax and Router.',
+    'header' => 'Simple, Fast and Light.',
+    'lead' => 'PHP MVC Micro-Framework Videna has been developed for using use at the shared hostings for small-size projects.',
+    'get started' => 'Get started',
 
-    // Page/product
 
-    'title Page/product' => 'Product',
-    'description Page/product' => 'Product - description!',
+    // Page/dashboard
 
-    'product' => 'Product',
-
-    // Page/product-one/sub-product-one
-
-    'title Page/product/sub-product' => 'Sub Product',
-    'description Page/product/sub-product' => 'Sub Product - description!',
-
-    'sub-product' => 'Sub Product',
-
+    'title Page/dashboard' => 'Dashboard example - Videna',
+    'description Page/dashboard' => 'Dashboard example - Videna',
 );

@@ -7,4 +7,4 @@ disallow: /
 user-agent: ltx71 - (http://ltx71.com/)
 disallow: /
 
-sitemap: https://domain.name/sitemap.xml
+sitemap: https://videna.hostbrook.com/sitemap.xml

@@ -12,34 +12,82 @@
 namespace App\Controllers;
 
 use \Videna\Core\Router;
-use \Videna\Core\Config;
+use \Videna\Models\Users;
+use \Videna\Core\User;
 use \Videna\Core\View;
 
 
 class Ajax extends \Videna\Controllers\AjaxHandler
 {
 
-
     /**
-     * This is an example.
-     * Test action - if action is missed at ajax request 
+     * This is an example action.
+     * Example action - if action is missed at ajax request 
      * @return void 
      */
-    public function actionTest()
+    public function actionExample()
     {
-
-        // For loggined user show users name,
-        // For unregistered user show name in parameter `name`:
-        if ($this->user['account'] == USR_UNREG) {
-            $name = Router::get('name');
-        } else $name = $this->user['name'];
 
         // Put in 'txt' test phrase:
         View::set([
-            'text' => 'Text test phrase: My name is ' . $name . ' and I\'m ' . Router::get('age') . ' years old.'
+            'text' => 'Text test phrase: user account: ' . $this->user['account'] . ', user language: ' . View::get('lang')
         ]);
 
-        // Put in 'html' view '/Ajax/test':
+        // Put in 'html' the view '/Ajax/test.php':
         Router::$view = '/Ajax/test';
+    }
+
+
+    /**
+     * Check if user exists in Database
+     * @return void 
+     */
+    public function actionCheckAccount()
+    {
+        $result = Users::getUser(['email' => Router::get('email')]);
+        if ($result) $result = true;
+
+        // Put in 'email_exists' the result: `true` if user already exists in DB
+        View::set([
+            'email_exists' => $result
+        ]);
+    }
+
+
+    /**
+     * Login the existing user by email or
+     * create a new account and login new user if doesn't exist
+     * 
+     * @return void 
+     */
+    public function actionSocialLogin()
+    {
+        $user = Users::getUser(['email' => Router::get('email')]);
+        if (!$user) {
+            // Create new account
+            $userID = Users::addUser([
+                'name' => Router::get('name'),
+                'last_name' => Router::get('last_name'),
+                'email' => Router::get('email'),
+                'lang' => View::get('lang')
+            ]);
+            // Login new user
+            $this->user = User::login($userID);
+        }
+        // Login user if it already exists in DB:
+        else  $this->user = User::login($user['id']);
+    }
+
+
+    /**
+     * Delete account of the existing user
+     * 
+     * @return void 
+     */
+    public function actionDeleteAccount()
+    {
+        $userID = $this->user['id'];
+        User::logout($userID);
+        Users::delete(['id' => $userID]);
     }
 }

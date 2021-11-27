@@ -1,60 +1,16 @@
 <?php include PATH_VIEWS . 'inc/header.php' ?>
 
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <h1 class="mt-5"><?= $_['header'] ?></h1>
+<!-- CONTENT -->
+<div class="uk-container uk-container-small uk-flex-auto uk-text-center" data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
+    <h1 class="uk-heading-primary animate uk-invisible" style="font-weight: 700;"><?= $_['header'] ?></h1>
+    <div class="uk-width-4-5@m uk-margin-auto animate uk-invisible">
         <p class="lead"><?= $_['lead'] ?></p>
-        <ul class="list-unstyled">
-            <li>Bootstrap 5.0</li>
-            <li>jQuery 3.5.1</li>
-        </ul>
+    </div>
+    <div class="uk-margin-medium-top animate uk-invisible" data-uk-margin data-uk-scrollspy-class="uk-animation-fade uk-invisible">
+        <a class="uk-button uk-button-default uk-button-large uk-width-2-3 uk-width-auto@s" href="https://github.com/hostbrook/videna/wiki/01.-Introducing" title="<?= $_['get started'] ?>"><?= $_['get started'] ?></a>
+        <a class="uk-button uk-button-primary uk-button-large uk-width-2-3 uk-width-auto@s" href="https://github.com/hostbrook/videna" target="_blank" title="GitHub">GITHUB</a>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <button type="button" id="test-ajax" class="btn btn-primary mb-3">Test Ajax</button>
-        <div class="alert alert-primary" id="test-text-out">
-            <em>This text should be replaced with AJAX TEXT response.</em>
-        </div>
-    </div>
-</div>
-
-<div class="row ">
-    <div class="col-lg-12 text-center border my-3 py-3" id="test-html-out">
-        <em>This block should be replaced with AJAX HTML response.</em>
-    </div>
-</div>
-
-<script>
-    $(document).on({
-        click: function() {
-
-            $.ajax({
-
-                url: "/ajax/test",
-                data: {
-                    name: "John",
-                    age: 35
-                },
-
-                success: function(JSONdata) {
-                    let out;
-                    if (!(out = isJSON(JSONdata))) return false;
-
-                    $('#test-text-out').html(out.text);
-                    $('#test-html-out').html(out.html);
-
-                },
-
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert("ERROR: " + getErrorMessage(jqXHR));
-                }
-
-            });
-
-        }
-    }, '#test-ajax');
-</script>
+<!-- /CONTENT -->
 
 <?php include PATH_VIEWS . 'inc/footer.php' ?>
