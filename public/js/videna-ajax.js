@@ -11,7 +11,7 @@
  * Check if response from server is in JSON format
  * 
  * @param {json} AjaxResponse Response from server
- * @return {bool} true (if JSON and response == 200) | false if error in response
+ * @return {mixed} JSON (if data is JSON && response == 200) | false if error in response
  */
 function validResponse(AjaxResponse) {
 
@@ -20,8 +20,6 @@ function validResponse(AjaxResponse) {
     try {
         result = JSON.parse(AjaxResponse);
     } catch (e) {
-        console.log('An error occurred during AJAX request execution. No JSON data provided. Server response:');
-        console.log(AjaxResponse);
         return false;
     }
 

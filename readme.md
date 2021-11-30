@@ -13,6 +13,7 @@ This fast and lightweight MVC framework was developed to use at the shared hosti
 - Super light: 57 kB size of framework core.
 
 The framework's landing page is a clone of this repository: [https://videna.hostbrook.com](https://videna.hostbrook.com)
+
 The framework's documantation: [https://github.com/hostbrook/videna/wiki](https://github.com/hostbrook/videna/wiki)
 
 ## Installation & Set Up
@@ -33,14 +34,14 @@ _Note: the 'project_name' folder is a project root, but you need to setup at you
 composer update
 ```
 
-**Step 3.** Make your application
+**Step 3.** Make your application at your local host.
 
-**Step 4.** Upload your application to the web hosting.
+**Step 4.** Upload your application to your web hosting server via private GitHub repository.
 
 ## Upgrading
 
-Whenever there is a new release, then from the command line in your **project root**:
-
+Whenever there is a new release, update your application from the command line in your **project root**:
 ```shell
 composer update
 ```
+With this command the Videna framework core will be updated.

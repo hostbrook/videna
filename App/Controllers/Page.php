@@ -15,7 +15,6 @@ use \Videna\Core\Log;
 use \Videna\Core\User;
 use \Videna\Helpers\Mail;
 use \Videna\Core\View;
-use \Videna\Core\Router;
 
 
 class Page extends \Videna\Controllers\StaticPage
@@ -41,7 +40,7 @@ class Page extends \Videna\Controllers\StaticPage
     public function actionSendMail()
     {
 
-        if ($this->user['account'] < USR_ADMIN) $this->actionError(403);
+        if (User::get('account') < USR_ADMIN) $this->actionError(403);
 
         $mail = new Mail(true);
         $mail->Subject = "Test email from videna";
@@ -64,11 +63,11 @@ class Page extends \Videna\Controllers\StaticPage
     public function actionLogout()
     {
 
-        if ($this->user['account'] > USR_UNREG) {
+        if (User::get('account') > USR_UNREG) {
             // Try user logout by 'User::logout()'
             // It returns 'false' if logout unsuccessful
             // Or returns new user account if logout successful
-            $this->user = User::logout();
+            User::logout();
         }
 
         $this->redirect('/');

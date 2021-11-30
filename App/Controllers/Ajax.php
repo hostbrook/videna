@@ -30,7 +30,7 @@ class Ajax extends \Videna\Controllers\AjaxHandler
 
         // Put in 'txt' test phrase:
         View::set([
-            'text' => 'Text test phrase: user account: ' . $this->user['account'] . ', user language: ' . View::get('lang')
+            'text' => 'Text test phrase: user account: ' . User::get('account') . ', user language: ' . View::get('lang')
         ]);
 
         // Put in 'html' the view '/Ajax/test.php':
@@ -44,8 +44,8 @@ class Ajax extends \Videna\Controllers\AjaxHandler
      */
     public function actionCheckAccount()
     {
-        $result = Users::getUser(['email' => Router::get('email')]);
-        if ($result) $result = true;
+        $result = Users::get(['email' => Router::get('email')], 1);
+        if ($result !== false) $result = true;
 
         // Put in 'email_exists' the result: `true` if user already exists in DB
         View::set([
@@ -62,20 +62,23 @@ class Ajax extends \Videna\Controllers\AjaxHandler
      */
     public function actionSocialLogin()
     {
-        $user = Users::getUser(['email' => Router::get('email')]);
+        $user = Users::get(['email' => Router::get('email')], 1);
         if (!$user) {
+
             // Create new account
-            $userID = Users::addUser([
+            $userID = Users::add([
                 'name' => Router::get('name'),
                 'last_name' => Router::get('last_name'),
                 'email' => Router::get('email'),
-                'lang' => View::get('lang')
+                'lang' => View::get('lang'),
+                'account' => USR_REG
             ]);
+
             // Login new user
-            $this->user = User::login($userID);
+            User::login($userID);
         }
         // Login user if it already exists in DB:
-        else  $this->user = User::login($user['id']);
+        else  User::login($user['id']);
     }
 
 
@@ -86,8 +89,8 @@ class Ajax extends \Videna\Controllers\AjaxHandler
      */
     public function actionDeleteAccount()
     {
-        $userID = $this->user['id'];
+        $userID = User::get('id');
         User::logout($userID);
-        Users::delete(['id' => $userID]);
+        Users::del(['id' => $userID]);
     }
 }

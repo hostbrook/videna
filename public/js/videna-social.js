@@ -226,53 +226,42 @@ function SocialNetworkLogin(user) {
     $.ajax({
         url: "/ajax/check-account",
         data: user,
+        dataType: 'json',
 
         success: function(data) {
 
-            if ( validResponse(data) ) {
+            if (data.email_exists == false) {
+                // email doesn't exist in database
 
-                if (data.email_exists == false) {
-                    // email doesn't exist in database
-
-                    UIkit.modal.confirm(
-                        user.name + ', account linked with email ' + user.email + ' is not found. Would you like to create a new account with Videna?'
-                    ).then(function() {
-                        UIkit.notification({
-                            message: 'Creating an account...',
-                            pos: 'bottom-center',
-                            status: 'primary'
-                        });
-                        setTimeout(function() {
-                            SignInUser(user);
-                        }, 1000);
-                    }, function () {
-                        console.log('User discards of creating an account.')
-                    });
-
-                } else {
-                    // email exists in database
-
+                UIkit.modal.confirm(
+                    user.name + ', account linked with email ' + user.email + ' is not found. Would you like to create a new account with Videna?'
+                ).then(function() {
                     UIkit.notification({
-                        message: 'Redirection to dashboard...',
+                        message: 'Creating an account...',
                         pos: 'bottom-center',
-                        status: 'success'
+                        status: 'primary'
                     });
-
                     setTimeout(function() {
                         SignInUser(user);
-                    }, 500);
-
-                };
+                    }, 1000);
+                }, function () {
+                    console.log('User discards of creating an account.')
+                });
 
             } else {
-                $('.' + user.network + '-login').removeAttr("disabled");
-                UIkit.notification({
-                    message: 'Invalid response from server.',
-                    status: 'danger',
-                    pos: 'bottom-center'
-                });
-            }
+                // email exists in database
 
+                UIkit.notification({
+                    message: 'Redirection to dashboard...',
+                    pos: 'bottom-center',
+                    status: 'success'
+                });
+
+                setTimeout(function() {
+                    SignInUser(user);
+                }, 500);
+
+            };
         },
 
         error: function(jqXHR, textStatus, errorThrown) {
@@ -294,9 +283,10 @@ function SignInUser(user) {
     $.ajax({
         url: "/ajax/social-login",
         data: user,
+        //dataType: 'json',
 
         success: function(data) {
-            if ( validResponse(data) ) {
+            if ( data = validResponse(data) ) {
                 setTimeout(function() {
                     window.location.replace("/dashboard");
                 }, 500);

@@ -13,6 +13,7 @@ namespace App\Controllers\Page;
 
 use \Videna\Core\Log;
 use \Videna\Core\Router;
+use \Videna\Core\User;
 
 class Dashboard extends \Videna\Controllers\StaticPage
 {
@@ -34,7 +35,7 @@ class Dashboard extends \Videna\Controllers\StaticPage
     {
         parent::before();
 
-        if ($this->user['account'] < USR_REG)  $this->actionError(403);
+        if (User::get('account') < USR_REG)  $this->actionError(403);
     }
 
 

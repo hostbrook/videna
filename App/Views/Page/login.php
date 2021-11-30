@@ -14,7 +14,7 @@
 <!-- /CONTENT -->
 
 <script src="https://apis.google.com/js/api.js"></script>
-<script src="/js/videna-ajax.js"></script>
-<script src="/js/videna-social.js"></script>
+<script src="/js/videna-ajax.js?ver=211129"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
+<script src="/js/videna-social.js?ver=211129"></script>
 
 <?php include PATH_VIEWS . 'inc/footer.php' ?>
