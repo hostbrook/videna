@@ -6,9 +6,9 @@ This fast and lightweight MVC framework was developed to use at the shared hosti
 - Matches [PSR-1](https://www.php-fig.org/psr/psr-1/), [PSR-4](https://www.php-fig.org/psr/psr-4/), [PSR-5](https://www.php-fig.org/psr/psr-5/) and [PSR-12](https://www.php-fig.org/psr/psr-12/) Standards Recommendations.
 - Comes out of the box with [PHPMailer](https://github.com/PHPMailer/PHPMailer) SMTP mailer.
 - Can work with applications where Database conenction is not required.
-- Pre-cocked for Maria/MySQL databases via PDO.
-- Pre-coocked router, no any programming required.
-- Pre-coocked AJAX Handler and Cron jobs controllers.
+- Pre-cooked for Maria/MySQL databases via PDO.
+- Pre-cooked router, no any programming required.
+- Pre-cooked AJAX Handler and Cron jobs controllers.
 - Multi-language support.
 - Super light: 57 kB size of framework core.
 
@@ -34,9 +34,9 @@ _Note: the 'project_name' folder is a project root, but you need to setup at you
 composer update
 ```
 
-**Step 3.** Make your application at your local host.
+**Step 3.** Setup you enviroment
 
-**Step 4.** Upload your application to your web hosting server via private GitHub repository.
+More about enviroment set up please readd in framework's documantation: [https://github.com/hostbrook/videna/wiki](https://github.com/hostbrook/videna/wiki)
 
 ## Upgrading
 
