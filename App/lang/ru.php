@@ -45,6 +45,12 @@ return array(
      * Static Pages
      */
 
+    // Default
+
+    'title default' => 'Videna - PHP MVC Микро-фреймворк',
+    'description default' => 'Videna - PHP MVC Микро-фреймворк',
+
+
     // Page/index
 
     'title Page/index' => 'Videna - PHP MVC Микро-фреймворк',

@@ -22,10 +22,7 @@ return array(
 	-------------------------------------------------------*/
     // Uncomment to override:
 
-    //'default controller' => 'Page',
-    //'default action' => 'Index',
-    //'default view' => 'index',
-
+    //'error view' => 'error',
     //'url suffixes' => ['.htm', '.html', '.php'],
 
     //'default language' => 'en',

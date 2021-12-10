@@ -34,7 +34,7 @@ class Ajax extends \Videna\Controllers\AjaxHandler
         ]);
 
         // Put in 'html' the view '/Ajax/test.php':
-        Router::$view = '/Ajax/test';
+        View::$show = '/Ajax/test';
     }
 
 

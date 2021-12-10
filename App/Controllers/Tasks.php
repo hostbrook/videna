@@ -3,7 +3,7 @@
 /**
  * <Application name>
  * 
- * The example of default page controller maintain Static Page requests.
+ * An example of controller.
  * 
  * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @author HostBrook <support@hostbrook.com>
@@ -17,15 +17,11 @@ use \Videna\Helpers\Mail;
 use \Videna\Core\View;
 
 
-class Page extends \Videna\Controllers\StaticPage
+class Tasks extends \Videna\Controllers\StaticPage
 {
 
     /**
-     * Index action is a default action, keeps the route map:
-     * /<controller>/.../<controller>/<action>/<param_1>/../<param_n>
-     * - All parameters in the URL are not required
-     * - Path to the page consists of parameters <controller> and <param>
-     * 
+     * Index action is a default action
      * @return void
      */
     public function actionIndex()
@@ -70,6 +66,6 @@ class Page extends \Videna\Controllers\StaticPage
             User::logout();
         }
 
-        $this->redirect('/');
+        $this->actionRedirect('/');
     }
 }

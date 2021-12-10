@@ -9,11 +9,12 @@
  * @author HostBrook <support@hostbrook.com>
  */
 
-namespace App\Controllers\Page;
+namespace App\Controllers\Admin;
 
 use \Videna\Core\Log;
-use \Videna\Core\Router;
 use \Videna\Core\User;
+use \Videna\Core\View;
+use \Videna\Core\Router;
 
 class Dashboard extends \Videna\Controllers\StaticPage
 {
@@ -23,6 +24,7 @@ class Dashboard extends \Videna\Controllers\StaticPage
      */
     public function actionIndex()
     {
+        View::$show = 'admin/dashboard';
     }
 
 
@@ -35,7 +37,10 @@ class Dashboard extends \Videna\Controllers\StaticPage
     {
         parent::before();
 
-        if (User::get('account') < USR_REG)  $this->actionError(403);
+        if (User::get('account') < USR_REG) {
+            Router::$action = 'Error';
+            Router::$response = 403;
+        }
     }
 
 
@@ -50,8 +55,7 @@ class Dashboard extends \Videna\Controllers\StaticPage
         $log = Log::read();
         $this->viewArgs['log'] = $log;
 
-        Router::$view = '/Page/admin/log';
-        //$this->actionIndex();
+        View::$show = '/Page/admin/log';
     }
 
 
@@ -65,6 +69,6 @@ class Dashboard extends \Videna\Controllers\StaticPage
 
         $this->viewArgs['logDeleteResult'] = Log::delete();
 
-        Router::$view = '/Page/admin/log-delete';
+        View::$show = '/Page/admin/log-delete';
     }
 }

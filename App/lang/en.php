@@ -45,6 +45,12 @@ return array(
      * Static Pages
      */
 
+    // Default
+
+    'title default' => 'Videna - PHP MVC Micro-Framework',
+    'description default' => 'Videna - PHP MVC Micro-Framework',
+
+
     // Page/index
 
     'title Page/index' => 'Videna - PHP MVC Micro-Framework',

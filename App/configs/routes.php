@@ -13,18 +13,17 @@ use \Videna\Core\Route;
 
 // SEF URLs
 
-Route::view('/', 'Page/index')->name('home');
-Route::view('/{lang}/', 'Page/index')->where(['lang' => 'ru|en'])->name('home');
+Route::view('/', 'index')->name('home');
+Route::view('/{lang}/', 'index')->where(['lang' => 'ru|en'])->name('home');
 
-Route::view('/login', 'Page/login')->name('login');
-Route::view('/{lang}/login', 'Page/login')->where(['lang' => 'ru|en'])->name('login');
+Route::view('/login', 'login')->name('login');
+Route::view('/{lang}/login', 'login')->where(['lang' => 'ru|en'])->name('login');
 
-Route::add('/dashboard', 'Page\Dashboard@Index')->name('dashboard');
-Route::add('/{lang}/dashboard', 'Page\Dashboard@Index')->where(['lang' => 'ru|en'])->name('dashboard');
+Route::add('/dashboard', 'Admin\\Dashboard@Index')->name('dashboard');
+Route::add('/{lang}/dashboard', 'Admin\\Dashboard@Index')->where(['lang' => 'ru|en'])->name('dashboard');
 
-Route::add('/logout', 'Page@Logout')->name('logout');
-Route::add('/{lang}/logout', 'Page@Logout')->where(['lang' => 'ru|en'])->name('logout');
-
+Route::add('/logout', 'Tasks@Logout')->name('logout');
+Route::add('/{lang}/logout', 'Tasks@Logout')->where(['lang' => 'ru|en'])->name('logout');
 
 // AJAX requests
 
