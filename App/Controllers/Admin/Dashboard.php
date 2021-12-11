@@ -55,7 +55,7 @@ class Dashboard extends \Videna\Controllers\StaticPage
         $log = Log::read();
         $this->viewArgs['log'] = $log;
 
-        View::$show = '/Page/admin/log';
+        View::$show = '/admin/log';
     }
 
 
@@ -69,6 +69,6 @@ class Dashboard extends \Videna\Controllers\StaticPage
 
         $this->viewArgs['logDeleteResult'] = Log::delete();
 
-        View::$show = '/Page/admin/log-delete';
+        View::$show = '/admin/log-delete';
     }
 }

@@ -7,7 +7,7 @@
         <p class="lead"><?= $_['lead'] ?></p>
     </div>
     <div class="uk-margin-medium-top animate uk-invisible" data-uk-margin data-uk-scrollspy-class="uk-animation-fade uk-invisible">
-        <a class="uk-button uk-button-default uk-button-large uk-width-2-3 uk-width-auto@s" href="https://github.com/hostbrook/videna/wiki/01.-Introducing" title="<?= $_['get started'] ?>"><?= $_['get started'] ?></a>
+        <a class="uk-button uk-button-default uk-button-large uk-width-2-3 uk-width-auto@s" href="https://github.com/hostbrook/videna/wiki/" title="<?= $_['get started'] ?>"><?= $_['get started'] ?></a>
         <a class="uk-button uk-button-primary uk-button-large uk-width-2-3 uk-width-auto@s" href="https://github.com/hostbrook/videna" target="_blank" title="GitHub">GITHUB</a>
     </div>
 </div>

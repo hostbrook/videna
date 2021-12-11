@@ -25,16 +25,16 @@ class Ajax extends \Videna\Controllers\AjaxHandler
      * Example action - if action is missed at ajax request 
      * @return void 
      */
-    public function actionExample()
+    public function actionGetPrivacyPolicy()
     {
 
-        // Put in 'txt' test phrase:
+        // Example: Put in 'txt' test phrase:
         View::set([
             'text' => 'Text test phrase: user account: ' . User::get('account') . ', user language: ' . View::get('lang')
         ]);
 
         // Put in 'html' the view '/Ajax/test.php':
-        View::$show = '/Ajax/test';
+        View::$show = '/ajax/privacy';
     }
 
 
