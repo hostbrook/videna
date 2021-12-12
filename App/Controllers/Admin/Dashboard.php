@@ -16,7 +16,7 @@ use \Videna\Core\User;
 use \Videna\Core\View;
 use \Videna\Core\Router;
 
-class Dashboard extends \Videna\Controllers\StaticPage
+class Dashboard extends \Videna\Controllers\WebPage
 {
 
     /**

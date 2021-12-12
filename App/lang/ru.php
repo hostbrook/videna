@@ -42,28 +42,33 @@ return array(
 
 
     /**
-     * Static Pages
+     * Web Pages
      */
 
-    // Default
+    // Default meta
 
     'title default' => 'Videna - PHP MVC Микро-фреймворк',
     'description default' => 'Videna - PHP MVC Микро-фреймворк',
 
 
-    // Page/index
+    // View: /index
 
-    'title Page/index' => 'Videna - PHP MVC Микро-фреймворк',
-    'description Page/index' => 'Videna - PHP MVC Микро-фреймворк',
+    'title index' => 'Videna - PHP MVC Микро-фреймворк',
+    'description index' => 'Videna - PHP MVC Микро-фреймворк',
 
     'header' => 'Быстрый, Простой, Лёгкий.',
     'lead' => 'PHP MVC Микро-фреймворк Videna разработан для небольших проектов на виртуальных хостингах.',
     'get started' => 'С чего начать',
 
 
-    // Page/dashboard
+    // View: /login
 
-    'title Page/dashboard' => 'Панель управления - Videna',
-    'description Page/dashboard' => 'Панель управления - Videna',
+    'title login' => 'Вход - Videna',
+
+
+    // View: /admin/dashboard
+
+    'title admin/dashboard' => 'Панель управления - Videna',
+    'description admin/dashboard' => 'Панель управления - Videna',
 
 );
