@@ -3,7 +3,7 @@
 /**
  * <Application name>
  * 
- * Registered routes are here
+ * Add routes into the registered routes list
  * 
  * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @author HostBrook <support@hostbrook.com>
@@ -31,3 +31,7 @@ Route::add('/ajax/social-login', 'Ajax@SocialLogin');
 Route::add('/ajax/check-account', 'Ajax@CheckAccount');
 Route::add('/ajax/delete-account', 'Ajax@DeleteAccount');
 Route::add('/ajax/get-privacy-policy', 'Ajax@GetPrivacyPolicy');
+
+// Run Cron job via HTTP
+
+Route::add('/cronjob', 'Cron@Index');
