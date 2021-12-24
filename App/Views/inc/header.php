@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="<?= $lang ?>">
+<html lang="<?= $view->lang ?>">
 
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?= $description ?>">
+    <meta name="description" content="<?= $view->description ?>">
 
-    <title><?= $title ?></title>
+    <title><?= $view->title ?></title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -49,13 +49,24 @@
 
                         <div class="uk-navbar-right">
                             <div class="uk-navbar-item">
-                                <div class="uk-navbar-subtitle uk-text-muted"><a class="uk-text-muted" href="/en/">EN</a> | <a class="uk-text-muted" href="/ru/">RU</a></div>
+                                <div class="uk-navbar-subtitle uk-text-muted">
+                                    <?php if ($view->lang == 'en'): ?>
+                                        <span class="uk-text-muted" href="/en/">EN</span>
+                                    <?php else : ?>
+                                        <a class="uk-text-muted" href="/en/">EN</a>
+                                    <?php endif ?> |
+                                    <?php if ($view->lang == 'ru'): ?>
+                                        <span class="uk-text-muted" href="/ru/">RU</span>
+                                    <?php else : ?>
+                                        <a class="uk-text-muted" href="/ru/">RU</a>
+                                    <?php endif ?>
+                                </div>
                             </div>
                             <ul class="uk-navbar-nav">
                                 <li class="uk-visible@s"><a href="https://github.com/hostbrook/videna/wiki/"><?= $_['docs'] ?></a></li>
-                                <?php if (isset($user) and $user['account'] > USR_UNREG) : ?>
+                                <?php if ($user->account > USR_UNREG) : ?>
                                     <li>
-                                        <a href="#" data-uk-icon="chevron-down"><span class="uk-icon" data-uk-icon="icon: user"></span> <?= $user['name'] ?></a>
+                                        <a href="#" data-uk-icon="chevron-down"><span class="uk-icon" data-uk-icon="icon: user"></span> <?= $user->name ?></a>
                                         <div class="uk-navbar-dropdown">
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                                 <li><a href="/dashboard"><span uk-icon="icon: nut"></span> <?= $_['dashboard'] ?></a></li>
@@ -68,7 +79,7 @@
                             <div class="uk-navbar-item">
                                 <a class="uk-navbar-toggle uk-navbar-item uk-hidden@s" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
 
-                                <?php if (isset($user) and $user['account'] > USR_UNREG) : ?>
+                                <?php if ($user->account > USR_UNREG) : ?>
                                 <?php else : ?>
                                     <a href="/login" class="uk-button uk-button-default uk-visible@m"><?= $_['login'] ?></a>
                                 <?php endif; ?>
@@ -104,11 +115,11 @@
                         <li class="uk-nav-divider"></li>
 
                         <li class="uk-nav-header">User</li>
-                        <?php if (isset($user) and $user['account'] > USR_UNREG) : ?>
-                            <li><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: user"></span> <?= $user['name'] ?></li>
+                        <?php if ($user->account > USR_UNREG) : ?>
+                            <li><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: user"></span> <?= $user->name ?></li>
                         <?php endif; ?>
 
-                        <?php if (isset($user) and $user['account'] > USR_UNREG) : ?>
+                        <?php if ($user->account > USR_UNREG) : ?>
                             <li><a href="/dashboard"><span class="uk-margin-small-right uk-icon" uk-icon="icon: nut"></span> <?= $_['dashboard'] ?></a></li>
                             <li><a href="/logout"><span class="uk-margin-small-right uk-icon" uk-icon="icon: sign-out"></span> <?= $_['logout'] ?></a></li>
                         <?php else : ?>

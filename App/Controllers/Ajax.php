@@ -34,7 +34,7 @@ class Ajax extends \Videna\Controllers\AjaxHandler
         ]);
 
         // Put in 'html' the view '/Ajax/test.php':
-        View::$show = '/ajax/privacy';
+        View::$show = '/ajax/privacy.php';
     }
 
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="<?= $lang ?>">
+<html lang="<?= $view->lang ?>">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?= $description ?>">
+    <meta name="description" content="<?= $view->description ?>">
 
-    <title><?= $title ?></title>
+    <title><?= $view->title ?></title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -86,11 +86,11 @@
             <a class="uk-logo" title="Videna" href="<?= URL_ABS ?>"><img src="/img/videna-logo-white.png" alt="Videna"></a>
         </div>
         <div class="left-content-box  content-box-dark">
-            <img src="https://www.gravatar.com/avatar/<?= md5($user['email']) ?>" alt="" class="uk-border-circle profile-img">
-            <h4 class="uk-text-center uk-margin-remove-vertical text-light"><?= $user['name'] ?></h4>
+            <img src="https://www.gravatar.com/avatar/<?= md5($user->email) ?>" alt="" class="uk-border-circle profile-img">
+            <h4 class="uk-text-center uk-margin-remove-vertical text-light"><?= $user->name ?></h4>
 
             <div class="uk-position-relative uk-text-center uk-display-block">
-                <? if ($user['account'] < USR_ADMIN) : ?>
+                <? if ($user->account < USR_ADMIN) : ?>
                     <a href="#" class="uk-text-small uk-text-muted uk-display-block uk-text-center" data-uk-icon="icon: triangle-down; ratio: 0.7">Registered User</a>
                     <!-- user dropdown -->
                     <div class="uk-dropdown user-drop" data-uk-dropdown="mode: click; pos: bottom-center; animation: uk-animation-slide-bottom-small; duration: 150">
@@ -375,7 +375,7 @@
     <div id="modal-hello" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
             <h2 class="uk-modal-title">Videna</h2>
-            <p>Hello <?= $user['name'] ?>!</p>
+            <p>Hello <?= $user->name ?>!</p>
             <p>This is just a blank example of a control panel built on <a href="https://getuikit.com" target="_blank">UIKit</a> and based on free templates source created by <a href="https://github.com/zzseba78/Kick-Off" target="_blank">KickOff</a>.</p>
             <p class="uk-text-right">
                 <button class="uk-button uk-button-default uk-modal-close" type="button">Ok</button>

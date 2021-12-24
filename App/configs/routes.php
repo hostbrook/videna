@@ -13,11 +13,11 @@ use \Videna\Core\Route;
 
 // SEF URLs
 
-Route::view('/', 'index')->name('home');
-Route::view('/{lang}/', 'index')->where(['lang' => 'ru|en'])->name('home');
+Route::view('/', 'index.php')->name('home');
+Route::view('/{lang}/', 'index.php')->where(['lang' => 'ru|en'])->name('home');
 
-Route::view('/login', 'login')->name('login');
-Route::view('/{lang}/login', 'login')->where(['lang' => 'ru|en'])->name('login');
+Route::view('/login', 'login.php')->name('login');
+Route::view('/{lang}/login', 'login.php')->where(['lang' => 'ru|en'])->name('login');
 
 Route::add('/dashboard', 'Admin\Dashboard@Index')->name('dashboard');
 Route::add('/{lang}/dashboard', 'Admin\Dashboard@Index')->where(['lang' => 'ru|en'])->name('dashboard');

@@ -51,24 +51,24 @@ return array(
     'description default' => 'Videna - PHP MVC Micro-Framework',
 
 
-    // View: /index
+    // View: /index.php
 
-    'title index' => 'Videna - PHP MVC Micro-Framework',
-    'description index' => 'Videna - PHP MVC Micro-Framework',
+    'title index.php' => 'Videna - PHP MVC Micro-Framework',
+    'description index.php' => 'Videna - PHP MVC Micro-Framework',
 
     'header' => 'Simple, Fast and Light.',
     'lead' => 'PHP MVC Micro-Framework Videna has been developed for using use at the shared hostings for small-size projects.',
     'get started' => 'Get started',
 
 
-    // View: /login
+    // View: /login.php
 
-    'title login' => 'Login - Videna',
+    'title login.php' => 'Login - Videna',
 
 
-    // View: /admin/dashboard
+    // View: /admin/dashboard.php
 
-    'title admin/dashboard' => 'Dashboard example - Videna',
-    'description admin/dashboard' => 'Dashboard example - Videna',
+    'title admin/dashboard.php' => 'Dashboard example - Videna',
+    'description admin/dashboard.php' => 'Dashboard example - Videna',
 
 );

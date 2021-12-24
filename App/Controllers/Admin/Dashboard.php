@@ -24,7 +24,7 @@ class Dashboard extends \Videna\Controllers\WebPage
      */
     public function actionIndex()
     {
-        View::$show = 'admin/dashboard';
+        View::$show = 'admin/dashboard.php';
     }
 
 
@@ -55,7 +55,7 @@ class Dashboard extends \Videna\Controllers\WebPage
         $log = Log::read();
         $this->viewArgs['log'] = $log;
 
-        View::$show = '/admin/log';
+        View::$show = '/admin/log.php';
     }
 
 
@@ -69,6 +69,6 @@ class Dashboard extends \Videna\Controllers\WebPage
 
         $this->viewArgs['logDeleteResult'] = Log::delete();
 
-        View::$show = '/admin/log-delete';
+        View::$show = '/admin/log-delete.php';
     }
 }
