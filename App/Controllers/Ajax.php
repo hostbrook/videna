@@ -15,6 +15,7 @@ use \Videna\Core\Router;
 use \Videna\Models\Users;
 use \Videna\Core\User;
 use \Videna\Core\View;
+use \Videna\Core\Lang;
 
 
 class Ajax extends \Videna\Controllers\AjaxHandler
@@ -27,12 +28,6 @@ class Ajax extends \Videna\Controllers\AjaxHandler
      */
     public function actionGetPrivacyPolicy()
     {
-
-        // Example: Put in 'txt' test phrase:
-        View::set([
-            'text' => 'Text test phrase: user account: ' . User::get('account') . ', user language: ' . View::get('lang')
-        ]);
-
         // Put in 'html' the view '/Ajax/test.php':
         View::$show = '/ajax/privacy.php';
     }
@@ -70,7 +65,7 @@ class Ajax extends \Videna\Controllers\AjaxHandler
                 'name' => Router::get('name'),
                 'last_name' => Router::get('last_name'),
                 'email' => Router::get('email'),
-                'lang' => View::get('lang'),
+                'lang' => Lang::$code,
                 'account' => USR_REG
             ]);
 
