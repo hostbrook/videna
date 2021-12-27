@@ -25,12 +25,14 @@ Route::add('/{lang}/dashboard', 'Admin\Dashboard@Index')->where(['lang' => 'ru|e
 Route::add('/logout', 'Tasks@Logout')->name('logout');
 Route::add('/{lang}/logout', 'Tasks@Logout')->where(['lang' => 'ru|en'])->name('logout');
 
+
 // AJAX requests
 
 Route::add('/ajax/social-login', 'Ajax@SocialLogin');
 Route::add('/ajax/check-account', 'Ajax@CheckAccount');
 Route::add('/ajax/delete-account', 'Ajax@DeleteAccount');
-Route::add('/ajax/get-privacy-policy', 'Ajax@GetPrivacyPolicy');
+Route::view('/ajax/privacy-policy', 'ajax/privacy-policy.php');
+
 
 // Run Cron job via HTTP
 

@@ -35,27 +35,27 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
 
-<script src="/js/videna-ajax.js?ver=211129"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
+<script src="/js/videna-ajax.js?ver=211227"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
 
 <script>
-$(document).ready(function() {
-    $("#modal-privacy").on('click', function() {
-        $.ajax({
+    $(document).ready(function() {
+        $("#modal-privacy").on('click', function() {
+            $.ajax({
 
-            url: "/ajax/get-privacy-policy",
-            dataType: 'json',
+                url: "/ajax/privacy-policy",
+                dataType: 'json',
 
-            success: function(data) {
-                $('.hb-privacy-body').html(data.html);
-            },
+                success: function(data) {
+                    $('.hb-privacy-body').html(data.view);
+                },
 
-            error: function(jqXHR, textStatus, errorThrown) {
-                jqXHRErrorHandler(jqXHR);
-            }
+                error: function(jqXHR, textStatus, errorThrown) {
+                    jqXHRErrorHandler(jqXHR);
+                }
 
+            });
         });
     });
-});
 </script>
 
 </body>

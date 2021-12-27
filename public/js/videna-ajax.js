@@ -11,7 +11,10 @@
  * Check if response from server is in JSON format
  * 
  * @param {json} AjaxResponse Response from server
- * @return {mixed} JSON (if data is JSON && response == 200) | false if error in response
+ * @return {mixed} JSON | false
+ *        JSON - if server response has been converted successfully to JSON and .response == 200)
+ *        false - if server response wasn't converted successfully to JSON
+ *                or .response is different from 200
  */
 function validResponse(AjaxResponse) {
 
@@ -20,6 +23,8 @@ function validResponse(AjaxResponse) {
     try {
         result = JSON.parse(AjaxResponse);
     } catch (e) {
+        console.log('An error occurred during AJAX request execution. Server response:');
+        console.log(AjaxResponse);
         return false;
     }
 
@@ -82,10 +87,13 @@ function getErrorDescr(jqXHR) {
  * Ajax requests error processing
  * 
  * @param {object} jqXHR a string describing the type of error that occurred
- * @param {mixed} output true|false|string flag if output in console is required
+ * @param {mixed} output true|false|string
+ *                       true - output of error description in the terminal.
+ *                       string - specific note before output of error description in the terminal.
+ *                       false - do not output error description in the terminal. Return error description object.
  * @returns void|object 
- *          void - if output in console is required
- *          object - if output in console is not required
+ *          void - in the case error description output in the terminal.
+ *          object - an error description object, if output in the terminal is not required. 
  */
 function jqXHRErrorHandler(jqXHR, output = true){
     let errorDescr = getErrorDescr(jqXHR);
