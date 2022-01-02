@@ -24,7 +24,7 @@ class Dashboard extends \Videna\Controllers\WebPage
      */
     public function actionIndex()
     {
-        View::$show = 'admin/dashboard.php';
+        View::$show = 'admin/dashboard.html';
     }
 
 
@@ -43,32 +43,4 @@ class Dashboard extends \Videna\Controllers\WebPage
         }
     }
 
-
-    /**
-     * This is an example.
-     * Show log file
-     * @return void
-     */
-    public function actionLog()
-    {
-
-        $log = Log::read();
-        $this->viewArgs['log'] = $log;
-
-        View::$show = '/admin/log.php';
-    }
-
-
-    /**
-     * This is an example.
-     * Delete log file
-     * @return void
-     */
-    public function actionLogDelete()
-    {
-
-        $this->viewArgs['logDeleteResult'] = Log::delete();
-
-        View::$show = '/admin/log-delete.php';
-    }
 }

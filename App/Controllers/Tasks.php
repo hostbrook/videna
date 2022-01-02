@@ -42,9 +42,9 @@ class Tasks extends \Videna\Controllers\WebPage
         $mail->Subject = "Test email from videna";
         $mail->addAddress('email@domain.com', 'Name');
 
-        $mail->Body = View::include('mail/header.php');
+        $mail->Body = View::include('mail/header.html');
         $mail->Body .= "<p>HTML message from Videna Framework.</p>";
-        $mail->Body .= View::include('mail/footer.php');
+        $mail->Body .= View::include('mail/footer.html');
 
         $mail->send();
         Log::add('Mail successfully sent');

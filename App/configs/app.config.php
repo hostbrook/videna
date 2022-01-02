@@ -22,7 +22,7 @@ return array(
 	-------------------------------------------------------*/
     // Uncomment to override:
 
-    //'error view' => 'error.php',
+    'error view' => 'error.html',
     //'default language' => 'en',
     'supported languages' => ['en', 'ru'],
 

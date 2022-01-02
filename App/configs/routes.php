@@ -13,11 +13,11 @@ use \Videna\Core\Route;
 
 // SEF URLs
 
-Route::view('/', 'index.php')->name('home');
-Route::view('/{lang}/', 'index.php')->where(['lang' => 'ru|en'])->name('home');
+Route::view('/', 'index.html')->name('home');
+Route::view('/{lang}/', 'index.html')->where(['lang' => 'ru|en'])->name('home');
 
-Route::view('/login', 'login.php')->name('login');
-Route::view('/{lang}/login', 'login.php')->where(['lang' => 'ru|en'])->name('login');
+Route::view('/login', 'login.html')->name('login');
+Route::view('/{lang}/login', 'login.html')->where(['lang' => 'ru|en'])->name('login');
 
 Route::add('/dashboard', 'Admin\Dashboard@Index')->name('dashboard');
 Route::add('/{lang}/dashboard', 'Admin\Dashboard@Index')->where(['lang' => 'ru|en'])->name('dashboard');
@@ -31,7 +31,7 @@ Route::add('/{lang}/logout', 'Tasks@Logout')->where(['lang' => 'ru|en'])->name('
 Route::add('/ajax/social-login', 'Ajax@SocialLogin');
 Route::add('/ajax/check-account', 'Ajax@CheckAccount');
 Route::add('/ajax/delete-account', 'Ajax@DeleteAccount');
-Route::view('/ajax/privacy-policy', 'ajax/privacy-policy.php');
+Route::view('/ajax/privacy-policy', 'ajax/privacy-policy.html');
 
 
 // Run Cron job via HTTP
