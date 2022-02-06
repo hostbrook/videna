@@ -48,7 +48,8 @@
                         </div>
 
                         <div class="uk-navbar-right">
-                            <div class="uk-navbar-item">
+
+                            <div class="uk-navbar-item uk-visible@s">
                                 <div class="uk-navbar-subtitle uk-text-muted">
                                     <?php if ($view->lang == 'en'): ?>
                                         <span class="uk-text-muted" href="/en/">EN</span>
@@ -62,8 +63,9 @@
                                     <?php endif ?>
                                 </div>
                             </div>
-                            <ul class="uk-navbar-nav">
-                                <li class="uk-visible@s"><a href="https://github.com/hostbrook/videna/wiki/"><?= $_['docs'] ?></a></li>
+
+                            <ul class="uk-navbar-nav uk-visible@s">
+                                <li><a href="https://github.com/hostbrook/videna/wiki/"><?= $_['docs'] ?></a></li>
                                 <?php if ($user->account > USR_UNREG) : ?>
                                     <li>
                                         <a href="#" data-uk-icon="chevron-down"><span class="uk-icon" data-uk-icon="icon: user"></span> <?= $user->name ?></a>
@@ -76,6 +78,7 @@
                                     </li>
                                 <?php endif; ?>
                             </ul>
+
                             <div class="uk-navbar-item">
                                 <a class="uk-navbar-toggle uk-navbar-item uk-hidden@s" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
 
@@ -85,6 +88,7 @@
                                 <?php endif; ?>
 
                             </div>
+
                         </div>
 
                     </nav>
