@@ -32,13 +32,12 @@
 </div>
 
 <!-- JS FILES -->
-<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
-
+<script src="/js/app.min.js"></script>
 <script src="/js/videna-ajax.js?ver=211227"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
 
 <script>
     $(document).ready(function() {
+        
         $("#modal-privacy").on('click', function() {
             $.ajax({
 
@@ -55,6 +54,7 @@
 
             });
         });
+        
     });
 </script>
 

@@ -1,0 +1,34 @@
+{
+  "name": "videna",
+  "version": "1.0.0",
+  "description": "<p align=\"center\"><a href=\"https://videna.hostbrook.com\" target=\"_blank\"><img src=\"https://videna.hostbrook.com/img/videna-logo-green.png\"></a></p> <p align=\"center\"> <a href=\"https://github.com/hostbrook/videna\"><img alt=\"GitHub release (latest by date)\" src=\"https://img.shields.io/github/v/release/hostbrook/videna\"></a> <a href=\"https://github.com/hostbrook/videna-fwk\"><img alt=\"GitHub code size in bytes\" src=\"https://img.shields.io/github/languages/code-size/hostbrook/videna-fwk\"></a> <a href=\"https://github.com/hostbrook/videna\"><img alt=\"License\" src=\"https://img.shields.io/github/license/hostbrook/videna\"></a> </p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hostbrook/videna.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hostbrook/videna/issues"
+  },
+  "homepage": "https://github.com/hostbrook/videna#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "less": "^4.1.3",
+    "less-loader": "^11.0.0",
+    "minifier": "^0.8.1",
+    "uikit": "^3.15.1"
+  }
+}

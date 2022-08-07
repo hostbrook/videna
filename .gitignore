@@ -15,3 +15,7 @@ App/configs/env.php
 
 # Ignore IDE specific files
 .vscode/git
+node_modules
+
+# ignore node.js modules
+node_modules/*

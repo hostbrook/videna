@@ -66,7 +66,7 @@ $(document).ready(function() {
                 var GoogleUser = GoogleAuth.currentUser.get();
 
                 if (GoogleUser.isSignedIn()) {
-                    // User is signed-in
+                    // User is signed-in 
 
                     var profile = GoogleUser.getBasicProfile();
                     //console.log('ID: ' + profile.getId());
