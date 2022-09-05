@@ -16,7 +16,7 @@
             <h2 class="uk-modal-title">Privacy Policy</h2>
         </div>
 
-        <div class="uk-modal-body hb-privacy-body" uk-overflow-auto>
+        <div class="uk-modal-body" id="privacy-body" uk-overflow-auto>
 
         </div>
 
@@ -33,28 +33,27 @@
 
 <!-- JS FILES -->
 <script src="/js/app.min.js"></script>
-<script src="/js/videna-ajax.js?ver=211227"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
 
 <script>
-    $(document).ready(function() {
+    document.addEventListener("DOMContentLoaded", function(){
+        document.getElementById('modal-privacy').addEventListener('click', function () {
         
-        $("#modal-privacy").on('click', function() {
-            $.ajax({
-
-                url: "/ajax/privacy-policy",
-                dataType: 'json',
-
-                success: function(data) {
-                    $('.hb-privacy-body').html(data.view);
-                },
-
-                error: function(jqXHR, textStatus, errorThrown) {
-                    jqXHRErrorHandler(jqXHR);
+            const getModalBody = async () => {
+                try {
+                    const response = await fetch('/api/privacy-policy');
+                    if (response.ok) {
+                        const html = await response.text();
+                        document.getElementById('privacy-body').innerHTML = html;
+                    }
                 }
+                catch (error) {
+                    console.log(error);
+                }
+            }
 
-            });
+            getModalBody();
+
         });
-        
     });
 </script>
 

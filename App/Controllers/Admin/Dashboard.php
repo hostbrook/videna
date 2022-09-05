@@ -24,7 +24,7 @@ class Dashboard extends \Videna\Controllers\WebPage
      */
     public function actionIndex()
     {
-        View::$show = 'admin/dashboard.html';
+        View::$show = 'admin/dashboard.php';
     }
 
 

@@ -6,7 +6,7 @@
  * @author HostBrook <support@hostbrook.com>
  */
 
-$(document).ready(function() {
+ document.addEventListener("DOMContentLoaded", function(){
 
     /**
      * Google Login initialization
@@ -25,11 +25,11 @@ $(document).ready(function() {
                 // On success
                 function(success) {
                     // After library is successfully loaded then enable the login button
-                    $(".google-login").removeAttr('disabled');
+                    document.getElementById('google-login').removeAttribute("disabled");
                 },
                 // On error
                 function(error) {
-                    $(".google-login").attr('disabled');
+                    document.getElementById('google-login').removeAttribute("disabled");
                     UIkit.notification({
                         message: 'ERROR: Failed to Initialize client library (Google).',
                         status: 'danger',
@@ -40,7 +40,8 @@ $(document).ready(function() {
         },
         onerror: function() {
             // Failed to load libraries
-            $(".google-login").attr('disabled');
+            document.getElementById('google-login').removeAttribute("disabled");
+            
             UIkit.notification({
                 message: 'ERROR: Failed to load client libraries (Google).',
                 status: 'danger',
@@ -53,8 +54,9 @@ $(document).ready(function() {
     /**
      * Click on Google Login button
      */
-    $(".google-login").on('click', function() {
-        $(".google-login").attr('disabled', 'disabled');
+    document.getElementById('google-login').addEventListener('click', function () {
+
+        document.getElementById('google-login').setAttribute("disabled", "");
 
         // API call for Google login
         GoogleAuth = gapi.auth2.getAuthInstance();
@@ -88,7 +90,8 @@ $(document).ready(function() {
 
                 } else {
                     // by some reasons user can not be signed-in
-                    $(".google-login").removeAttr('disabled');
+                    document.getElementById('google-login').removeAttribute("disabled");
+                    
                     UIkit.notification({
                         message: 'ERROR: Failed to retrieve user data.',
                         status: 'danger',
@@ -100,7 +103,8 @@ $(document).ready(function() {
 
             function(error) {
                 // In the case if Google Login is Failed
-                $(".google-login").removeAttr('disabled');
+                document.getElementById('google-login').removeAttribute("disabled");
+                
                 UIkit.notification({
                     message: 'User cancelled login',
                     status: 'warning',
@@ -126,7 +130,7 @@ $(document).ready(function() {
         });
         FB.AppEvents.logPageView();
 
-        $(".facebook-login").removeAttr('disabled');
+        document.getElementById('facebook-login').removeAttribute("disabled");
     };
 
     (function(d, s, id){
@@ -141,9 +145,9 @@ $(document).ready(function() {
     /**
      * Click on Facebook Login button
      */
-    $(".facebook-login").on('click', function() {
+    document.getElementById('facebook-login').addEventListener('click', function () {
 
-        $(".facebook-login").attr('disabled', 'disabled');
+        document.getElementById('facebook-login').setAttribute("disabled", "");
 
         // Check whether the user already logged in
         FB.getLoginStatus(function(response) {
@@ -161,7 +165,8 @@ $(document).ready(function() {
                         getFbUserData();
                     } else {
                         // User cancelled login or did not fully authorized.
-                        $(".facebook-login").removeAttr('disabled');
+                        document.getElementById('facebook-login').removeAttribute("disabled");
+                        
                         UIkit.notification({
                             message : 'User cancelled login',
                             status  : 'warning',
@@ -204,7 +209,7 @@ $(document).ready(function() {
 
             SocialNetworkLogin(userData);
             
-            $(".facebook-login").removeAttr('disabled');
+            document.getElementById('facebook-login').removeAttribute("disabled");
         
         });
 
@@ -221,16 +226,38 @@ $(document).ready(function() {
  * 
  * @param {object} user Contains Name of social network and retrived user data
  */
-function SocialNetworkLogin(user) {
+ async function SocialNetworkLogin(user) {
 
-    $.ajax({
-        url: "/ajax/check-account",
-        data: user,
-        dataType: 'json',
+    user._token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
-        success: function(data) {
+    try {
+        const response = await fetch("/api/check-account", {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
 
-            if (data.email_exists == false) {
+        if(response.ok) {
+
+            const jsonResponse = await response.json();
+            if (jsonResponse.response != 200) throw Error(jsonResponse.status);
+            
+            if (jsonResponse.email_exists) {
+                // email exists in database
+
+                UIkit.notification({
+                    message: 'Redirection to dashboard...',
+                    pos: 'bottom-center',
+                    status: 'success'
+                });
+
+                setTimeout(function() {
+                    SignInUser(user);
+                }, 500);
+
+            } else {
                 // email doesn't exist in database
 
                 UIkit.modal.confirm(
@@ -247,29 +274,12 @@ function SocialNetworkLogin(user) {
                 }, function () {
                     console.log('User discards of creating an account.')
                 });
-
-            } else {
-                // email exists in database
-
-                UIkit.notification({
-                    message: 'Redirection to dashboard...',
-                    pos: 'bottom-center',
-                    status: 'success'
-                });
-
-                setTimeout(function() {
-                    SignInUser(user);
-                }, 500);
-
             };
-        },
-
-        error: function(jqXHR, textStatus, errorThrown) {
-            jqXHRErrorHandler(jqXHR);
         }
 
-    });
-
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
@@ -278,32 +288,30 @@ function SocialNetworkLogin(user) {
  * 
  * @param {object} user Contains Name of social network and retrived user data
  */
-function SignInUser(user) {
-    
-    $.ajax({
-        url: "/ajax/social-login",
-        data: user,
-        //dataType: 'json',
+async function SignInUser(user) {
 
-        success: function(data) {
-            if ( data = validResponse(data) ) {
-                setTimeout(function() {
-                    window.location.replace("/dashboard");
-                }, 500);
-            } else {
-                $('.' + user.network + '-login').removeAttr("disabled");
-                UIkit.notification({
-                    message: 'Invalid response from server.',
-                    status: 'danger',
-                    pos: 'bottom-center'
-                });
+    user._token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+
+    try {
+        const response = await fetch("/api/social-login", {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-type': 'application/json'
             }
-        },
+        });
 
-        error: function(jqXHR, textStatus, errorThrown) {
-            jqXHRErrorHandler(jqXHR);
+        if(response.ok) {
+            
+            const jsonResponse = await response.json();
+            if (jsonResponse.response != 200) throw Error(jsonResponse.status);
+
+            setTimeout(function() {
+                window.location.replace("/dashboard");
+            }, 500);
+
         }
-
-    });
-
+    } catch (error) {
+        console.log(error);
+    }
 }

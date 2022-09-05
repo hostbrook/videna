@@ -22,9 +22,16 @@ return array(
 	-------------------------------------------------------*/
     // Uncomment to override:
 
-    'error view' => 'error.html',
+    //'error view' => 'error.php',
+
     //'default language' => 'en',
     'supported languages' => ['en', 'ru'],
+
+    //'default controller' => 'Videna\\Controllers\\WebPage',
+    //'default api controller' => 'Videna\\Controllers\\ApiHandler',
+    
+    //'user token expires' => 0, // Valid until browser closed
+    //'crsf token expires' => 0, // Valid until browser clos
 
 
     /*-------------------------------------------------------

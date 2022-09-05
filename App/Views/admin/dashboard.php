@@ -433,7 +433,7 @@
         function deleteAccount() {
             $.ajax({
                 url: "/ajax/delete-account",
-                data: {},
+                data: {<?= $crsf->json ?>},
 
                 success: function (data) {
                     if (validResponse(data)) {
