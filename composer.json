@@ -16,7 +16,7 @@
     },
     "require": {
         "php": ">=5.6",
-        "hostbrook/videna-fwk": "^1.0",
+        "hostbrook/videna-fwk": "^2.0",
         "phpmailer/phpmailer": "^6.2"
     },
     "autoload": {

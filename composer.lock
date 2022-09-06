@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0ba08cc52842f5b94c0fc2d91fca990",
+    "content-hash": "743cb54c7fd63c138b7c6cf9ff4ffa71",
     "packages": [
         {
             "name": "hostbrook/videna-fwk",
-            "version": "1.16",
+            "version": "2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hostbrook/videna-fwk.git",
-                "reference": "5e28890e4d6ebded378de2162843da766a3456ca"
+                "reference": "9c2a30d9ecbfe7543af7d9df8060ee9ee28707df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/5e28890e4d6ebded378de2162843da766a3456ca",
-                "reference": "5e28890e4d6ebded378de2162843da766a3456ca",
+                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/9c2a30d9ecbfe7543af7d9df8060ee9ee28707df",
+                "reference": "9c2a30d9ecbfe7543af7d9df8060ee9ee28707df",
                 "shasum": ""
             },
             "require": {
@@ -43,22 +43,22 @@
             "description": "Videna PHP framework core",
             "support": {
                 "issues": "https://github.com/hostbrook/videna-fwk/issues",
-                "source": "https://github.com/hostbrook/videna-fwk/tree/1.16"
+                "source": "https://github.com/hostbrook/videna-fwk/tree/2.0"
             },
-            "time": "2022-05-26T03:32:35+00:00"
+            "time": "2022-09-06T03:21:11+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.6.3",
+            "version": "v6.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "9400f305a898f194caff5521f64e5dfa926626f3"
+                "reference": "a94fdebaea6bd17f51be0c2373ab80d3d681269b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/9400f305a898f194caff5521f64e5dfa926626f3",
-                "reference": "9400f305a898f194caff5521f64e5dfa926626f3",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/a94fdebaea6bd17f51be0c2373ab80d3d681269b",
+                "reference": "a94fdebaea6bd17f51be0c2373ab80d3d681269b",
                 "shasum": ""
             },
             "require": {
@@ -115,7 +115,7 @@
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "support": {
                 "issues": "https://github.com/PHPMailer/PHPMailer/issues",
-                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.6.3"
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.6.4"
             },
             "funding": [
                 {
@@ -123,7 +123,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-20T09:21:02+00:00"
+            "time": "2022-08-22T09:22:00+00:00"
         }
     ],
     "packages-dev": [],
