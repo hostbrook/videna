@@ -7,7 +7,7 @@
 
 # Videna PHP Framework
 
-PHP MVC Micro-Framework, developed by [HostBrook Ltd](https://hostbrook.com).
+PHP MVC Micro-Framework, developed by [HostBrook](https://hostbrook.com) team.
 This fast and lightweight MVC framework was developed to use at the shared hostings for small-size projects, where quantity of files and hosting speed are limited.
 
 - Matches [PSR-1](https://www.php-fig.org/psr/psr-1/), [PSR-4](https://www.php-fig.org/psr/psr-4/), [PSR-5](https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md) and [PSR-12](https://www.php-fig.org/psr/psr-12/) Standards Recommendations.
