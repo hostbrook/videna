@@ -228,7 +228,7 @@
  */
  async function SocialNetworkLogin(user) {
 
-    user._token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+    user.crsf_token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
     try {
         const response = await fetch("/api/check-account", {
@@ -290,7 +290,7 @@
  */
 async function SignInUser(user) {
 
-    user._token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+    user.crsf_token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
     try {
         const response = await fetch("/api/social-login", {

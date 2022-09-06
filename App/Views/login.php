@@ -14,6 +14,6 @@
 <!-- /CONTENT -->
 
 <script src="https://apis.google.com/js/api.js"></script>
-<script src="/js/videna-social.js?ver=<?= rand(1, 999999) ?>"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
+<script src="/js/videna-social.js?ver=220905"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
 
 <?php include PATH_VIEWS . 'inc/footer.php' ?>

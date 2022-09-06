@@ -16,11 +16,8 @@
     <link rel="shortcut icon" href="/favicon/favicon.ico">
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
-    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
 
     <style>
         .lead {
@@ -422,42 +419,40 @@
         </div>
     </div>
     <script>
-        $(document).ready(function () {
+        document.addEventListener("DOMContentLoaded", function(){
             UIkit.modal('#modal-hello').show();
         });
     </script>
     <!-- /MODAL -->
 
-    <script src="/js/videna-ajax.js"></script>
     <script>
         function deleteAccount() {
-            $.ajax({
-                url: "/ajax/delete-account",
-                data: {<?= $crsf->json ?>},
 
-                success: function (data) {
-                    if (validResponse(data)) {
+            const deleteAccount = async () => {
+                try {
+                    const response = await fetch('/api/delete-account');
+                    if (response.ok) {
                         window.location.replace("/");
-                    } else {
+                    }
+                    else {
                         UIkit.notification({
                             message: 'Invalid response from server.',
                             status: 'danger',
                             pos: 'bottom-center'
                         });
                     }
-                },
-
-                error: function (jqXHR, textStatus, errorThrown) {
-                    jqXHRErrorHandler(jqXHR);
                 }
+                catch (error) {
+                    console.log(error);
+                }
+            }
 
-            });
+            deleteAccount();
         }
     </script>
 
     <!-- JS FILES -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+    <script src="/js/app.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script src="js/chartScripts.js"></script>
 </body>

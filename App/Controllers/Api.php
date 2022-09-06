@@ -18,7 +18,7 @@ use \Videna\Core\View;
 use \Videna\Core\Lang;
 
 
-class Api extends \Videna\Controllers\ApiHandler
+class Api extends \Videna\Controllers\ApiController
 {
 
     /**

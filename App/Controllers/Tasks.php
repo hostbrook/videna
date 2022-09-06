@@ -17,7 +17,7 @@ use \Videna\Helpers\Mail;
 use \Videna\Core\View;
 
 
-class Tasks extends \Videna\Controllers\WebPage
+class Tasks extends \Videna\Controllers\HttpController
 {
 
     /**

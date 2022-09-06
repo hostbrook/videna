@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?= $view->description ?>">
-    <meta name="csrf-token" content="<?= $crsf->token ?>">
+    <?= $crsf->meta ?>
 
     <title><?= $view->title; ?></title>
 

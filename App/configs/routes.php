@@ -31,11 +31,7 @@ Route::add('/{lang}/logout', 'Tasks@Logout')->where(['lang' => 'ru|en'])->name('
 Route::add('/api/social-login', 'Api@SocialLogin');
 Route::add('/api/check-account', 'Api@CheckAccount');
 Route::view('/api/privacy-policy', 'api/privacy-policy.php');
-
-
-// AJAX requests
-
-Route::add('/ajax/delete-account', 'Ajax@DeleteAccount');
+Route::add('/api/delete-account', 'Api@DeleteAccount');
 
 
 // Run Cron job via HTTP
