@@ -11,12 +11,12 @@ PHP MVC Micro-Framework, developed by [HostBrook Ltd](https://hostbrook.com).
 This fast and lightweight MVC framework was developed to use at the shared hostings for small-size projects, where quantity of files and hosting speed are limited.
 
 - Matches [PSR-1](https://www.php-fig.org/psr/psr-1/), [PSR-4](https://www.php-fig.org/psr/psr-4/), [PSR-5](https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md) and [PSR-12](https://www.php-fig.org/psr/psr-12/) Standards Recommendations.
-- Comes out of the box with [PHPMailer](https://github.com/PHPMailer/PHPMailer) SMTP mailer.
+- Comes out of the box with [PHPMailer](https://github.com/PHPMailer/PHPMailer) SMTP mailer and CRSF protection.
 - Can work with applications where connection to a database is not required.
 - Pre-cooked for Maria/MySQL databases via PDO.
-- Pre-cooked AJAX Handler and Cron jobs controllers.
+- Pre-cooked Web API and Cron jobs controllers.
 - Multi-language support.
-- Super light: 60 kB size of the framework core.
+- Super light: 62 kB size of the framework core.
 
 The framework landing page is a clone of this repository: [https://videna.hostbrook.com](https://videna.hostbrook.com)
 
