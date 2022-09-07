@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "743cb54c7fd63c138b7c6cf9ff4ffa71",
+    "content-hash": "993f03975585c4a9ee8fdd7d023871c1",
     "packages": [
         {
             "name": "hostbrook/videna-fwk",
-            "version": "2.0",
+            "version": "2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hostbrook/videna-fwk.git",
-                "reference": "9c2a30d9ecbfe7543af7d9df8060ee9ee28707df"
+                "reference": "a73064eac481c9018546aea6f04824ef1ab6bc3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/9c2a30d9ecbfe7543af7d9df8060ee9ee28707df",
-                "reference": "9c2a30d9ecbfe7543af7d9df8060ee9ee28707df",
+                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/a73064eac481c9018546aea6f04824ef1ab6bc3d",
+                "reference": "a73064eac481c9018546aea6f04824ef1ab6bc3d",
                 "shasum": ""
             },
             "require": {
@@ -43,9 +43,9 @@
             "description": "Videna PHP framework core",
             "support": {
                 "issues": "https://github.com/hostbrook/videna-fwk/issues",
-                "source": "https://github.com/hostbrook/videna-fwk/tree/2.0"
+                "source": "https://github.com/hostbrook/videna-fwk/tree/2.1"
             },
-            "time": "2022-09-06T03:21:11+00:00"
+            "time": "2022-09-07T02:38:10+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -133,7 +133,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6"
+        "php": ">=8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
