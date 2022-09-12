@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "hostbrook/videna-fwk",
-            "version": "2.1",
+            "version": "2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hostbrook/videna-fwk.git",
-                "reference": "a73064eac481c9018546aea6f04824ef1ab6bc3d"
+                "reference": "49e850e0421fd8bd87bd6d98dd1623809d2b75cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/a73064eac481c9018546aea6f04824ef1ab6bc3d",
-                "reference": "a73064eac481c9018546aea6f04824ef1ab6bc3d",
+                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/49e850e0421fd8bd87bd6d98dd1623809d2b75cb",
+                "reference": "49e850e0421fd8bd87bd6d98dd1623809d2b75cb",
                 "shasum": ""
             },
             "require": {
@@ -43,9 +43,9 @@
             "description": "Videna PHP framework core",
             "support": {
                 "issues": "https://github.com/hostbrook/videna-fwk/issues",
-                "source": "https://github.com/hostbrook/videna-fwk/tree/2.1"
+                "source": "https://github.com/hostbrook/videna-fwk/tree/2.2"
             },
-            "time": "2022-09-07T02:38:10+00:00"
+            "time": "2022-09-12T01:46:48+00:00"
         },
         {
             "name": "phpmailer/phpmailer",

@@ -36,17 +36,21 @@ class Tasks extends \Videna\Controllers\HttpController
     public function actionSendMail()
     {
 
-        if (User::get('account') < USR_ADMIN) $this->actionError(403);
+        if (User::get('account') < USR_ADMIN) {
+            Router::$action = 'Error';
+            Router::$statusCode = 403;
+            return;
+        }
 
         $mail = new Mail(true);
         $mail->Subject = "Test email from videna";
         $mail->addAddress('email@domain.com', 'Name');
 
-        $mail->Body = View::include('mail/header.html');
+        $mail->Body = View::render('mail/header.html');
         $mail->Body .= "<p>HTML message from Videna Framework.</p>";
-        $mail->Body .= View::include('mail/footer.html');
+        $mail->Body .= View::render('mail/footer.html');
 
-        $mail->send();
+        $mail->Send();
         Log::add('Mail successfully sent');
     }
 
@@ -59,12 +63,7 @@ class Tasks extends \Videna\Controllers\HttpController
     public function actionLogout()
     {
 
-        if (User::get('account') > USR_UNREG) {
-            // Try user logout by 'User::logout()'
-            // It returns 'false' if logout unsuccessful
-            // Or returns new user account if logout successful
-            User::logout();
-        }
+        if (User::get('account') > USR_UNREG) User::logout();
 
         $this->actionRedirect('/');
     }

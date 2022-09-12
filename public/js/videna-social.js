@@ -231,7 +231,7 @@
     user.csrf_token = document.querySelector('meta[name="csrf_token"]').getAttribute("content");
 
     try {
-        const response = await fetch("/api/check-account", {
+        const response = await fetch("/webapp/check-account", {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
@@ -242,7 +242,7 @@
         if(response.ok) {
 
             const jsonResponse = await response.json();
-            if (jsonResponse.response != 200) throw Error(jsonResponse.status);
+            if (jsonResponse.statusCode != 200) throw Error(jsonResponse.response);
             
             if (jsonResponse.email_exists) {
                 // email exists in database
@@ -293,7 +293,7 @@ async function SignInUser(user) {
     user.csrf_token = document.querySelector('meta[name="csrf_token"]').getAttribute("content");
 
     try {
-        const response = await fetch("/api/social-login", {
+        const response = await fetch("/webapp/social-login", {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
@@ -304,7 +304,7 @@ async function SignInUser(user) {
         if(response.ok) {
             
             const jsonResponse = await response.json();
-            if (jsonResponse.response != 200) throw Error(jsonResponse.status);
+            if (jsonResponse.statusCode != 200) throw Error(jsonResponse.response);
 
             setTimeout(function() {
                 window.location.replace("/dashboard");

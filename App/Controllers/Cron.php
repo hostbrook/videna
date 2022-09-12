@@ -19,6 +19,9 @@
  *   3. use http request:
  *      https://domain.com/cronjob?arg1=null&arg2=<arg2>&arg3=<arg3>...
  * 
+ *   To run test:
+ *      https://domain.com/cronjob?arg1=null&test
+ * 
  * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @author HostBrook <support@hostbrook.com>
  */
@@ -40,7 +43,7 @@ class Cron extends \Videna\Controllers\CronJob
 
         Log::add([
             'Test Cron Job: Passed!',
-            'Controller: ' . __CLASS__,
+            'Controller: ' . __CLASS__ . '.php',
             'argv[2]: ' . Router::$argv[2]
         ]);
     }

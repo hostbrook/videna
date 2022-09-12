@@ -24,7 +24,7 @@ class Dashboard extends \Videna\Controllers\HttpController
      */
     public function actionIndex()
     {
-        View::$show = 'admin/dashboard.php';
+        View::setPath('admin/dashboard.php');
     }
 
 
@@ -39,7 +39,7 @@ class Dashboard extends \Videna\Controllers\HttpController
 
         if (User::get('account') < USR_REG) {
             Router::$action = 'Error';
-            Router::$response = 403;
+            Router::$statusCode = 403;
         }
     }
 

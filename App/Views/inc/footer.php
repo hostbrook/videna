@@ -40,10 +40,10 @@
         
             const getModalBody = async () => {
                 try {
-                    const response = await fetch('/api/privacy-policy');
+                    const response = await fetch('/webapp/privacy-policy');
                     if (response.ok) {
-                        const html = await response.text();
-                        document.getElementById('privacy-body').innerHTML = html;
+                        const jsonResponse = await response.json();
+                        document.getElementById('privacy-body').innerHTML = jsonResponse.html;
                     }
                 }
                 catch (error) {

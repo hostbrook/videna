@@ -3,7 +3,7 @@
 /**
  * <Application name>
  * 
- * The example of Ajax requests controller
+ * The example of Api requests controller
  * 
  * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @author HostBrook <support@hostbrook.com>
@@ -12,68 +12,52 @@
 namespace App\Controllers;
 
 use \Videna\Core\Router;
-use \Videna\Models\Users;
-use \Videna\Core\User;
 use \Videna\Core\View;
-use \Videna\Core\Lang;
 
 
 class Api extends \Videna\Controllers\ApiController
 {
 
     /**
-     * Check if user exists in Database
+     * Filter before the each action
+     * @return void
+     */
+    protected function before()
+    {
+        parent::before();
+
+        if (!is_numeric(Router::get('id')) || !is_int(intval(Router::get('id')))) {
+            Router::$action = 'Error';
+            Router::$statusCode = 400;
+        }
+    }
+
+
+    /**
+     * Example of GET request handler
      * @return void 
      */
-    public function actionCheckAccount()
+    public function actionGetRequest()
     {
-        $result = Users::get(['email' => Router::get('email')], 1);
-        if ($result !== false) $result = true;
-
-        // Put in 'email_exists' the result: `true` if user already exists in DB
-        View::set([
-            'email_exists' => $result
+        // Return JSON
+        View::set(['result' => [
+            'id' => Router::get('id'),
+            'user_name' => 'John Doe',
+            'user_email' => 'email.example@domain.com'
+            ]
         ]);
     }
 
 
     /**
-     * Login the existing user by email or
-     * create a new account and login new user if doesn't exist
-     * 
+     * Example of DELETE request handler
      * @return void 
      */
-    public function actionSocialLogin()
+    public function actionDeleteRequest()
     {
-        $user = Users::get(['email' => Router::get('email')], 1);
-        if (!$user) {
-
-            // Create new account
-            $userID = Users::add([
-                'name' => Router::get('name'),
-                'last_name' => Router::get('last_name'),
-                'email' => Router::get('email'),
-                'lang' => Lang::$code,
-                'account' => USR_REG
-            ]);
-
-            // Login new user
-            User::login($userID);
-        }
-        // Login user if it already exists in DB:
-        else  User::login($user['id']);
+        // Return JSON
+        View::set(['result' => 'User id='.Router::get('id').' deleted']);
     }
 
 
-    /**
-     * Delete account of the existing user
-     * 
-     * @return void 
-     */
-    public function actionDeleteAccount()
-    {
-        $userID = User::get('id');
-        User::logout($userID);
-        Users::del(['id' => $userID]);
-    }
 }

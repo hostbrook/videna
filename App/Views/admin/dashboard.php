@@ -430,7 +430,13 @@
 
             const deleteAccount = async () => {
                 try {
-                    const response = await fetch('/api/delete-account');
+                    const response = await fetch('/webapp/delete-account', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-type': 'application/json'
+                        }
+                    });
+                    
                     if (response.ok) {
                         window.location.replace("/");
                     }
