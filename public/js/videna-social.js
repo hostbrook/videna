@@ -6,114 +6,56 @@
  * @author HostBrook <support@hostbrook.com>
  */
 
- document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
 
     /**
-     * Google Login initialization
-     * To use Google AUTH 2.0 you need get credentials: https://console.cloud.google.com/apis/credentials
-     * 1. get OAuth client ID as for `Web application`
-     * 2. get API key with restriction to Google+ API only
+     * Sign In With Google JavaScript API
+     * API: https://developers.google.com/identity/gsi/web/reference/js-reference#click_listener
+     * To use Sign In With Google API you need get credentials: https://console.cloud.google.com/apis/credentials
+     * 1. get OAuth 2.0 Client IDs as for `Web application`
+     * 2. Set URL in Authorized JavaScript origins that host your web application
      */
-    gapi.load('client:auth2', {
-        callback: function() {
-            // Initialize client library
-            gapi.client.init({
-                apiKey: 'AIzaSyDMHvQQvIKKJrP6AV_bS0cvk0tCTkmp_28',
-                clientId: '478936046715-jtejjvl2nefkng5l4ja97qruhm7sfunq.apps.googleusercontent.com',
-                scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
-            }).then(
-                // On success
-                function(success) {
-                    // After library is successfully loaded then enable the login button
-                    document.getElementById('google-login').removeAttribute("disabled");
-                },
-                // On error
-                function(error) {
-                    document.getElementById('google-login').removeAttribute("disabled");
-                    UIkit.notification({
-                        message: 'ERROR: Failed to Initialize client library (Google).',
-                        status: 'danger',
-                        pos: 'bottom-center'
-                    });
-                }
-            );
-        },
-        onerror: function() {
-            // Failed to load libraries
-            document.getElementById('google-login').removeAttribute("disabled");
-            
-            UIkit.notification({
-                message: 'ERROR: Failed to load client libraries (Google).',
-                status: 'danger',
-                pos: 'bottom-center'
-            });
-        }
+
+    google.accounts.id.initialize({
+        client_id: '478936046715-jtejjvl2nefkng5l4ja97qruhm7sfunq.apps.googleusercontent.com',
+        callback: handleCredentialResponse
     });
 
+    google.accounts.id.renderButton(
+        document.getElementById("google-login"), 
+        {
+            type: "standard",
+            theme: "filled_black",
+            size: "large",
+            logo_alignment: "left"
+        }
+    );
 
+    function decodeJwtResponse (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    }
+    
     /**
      * Click on Google Login button
      */
-    document.getElementById('google-login').addEventListener('click', function () {
+    function handleCredentialResponse(response) {     
+        const responsePayload = decodeJwtResponse(response.credential);
 
-        document.getElementById('google-login').setAttribute("disabled", "");
+        var userData = {
+            'name': responsePayload.given_name,
+            'last_name': responsePayload.family_name,
+            'image_url': responsePayload.picture,
+            'email': responsePayload.email,
+            'network': 'Google'
+        }
 
-        // API call for Google login
-        GoogleAuth = gapi.auth2.getAuthInstance();
-        GoogleAuth.signIn().then(
-
-            // On success of Google Login
-            function(success) {
-
-                var GoogleUser = GoogleAuth.currentUser.get();
-
-                if (GoogleUser.isSignedIn()) {
-                    // User is signed-in 
-
-                    var profile = GoogleUser.getBasicProfile();
-                    //console.log('ID: ' + profile.getId());
-                    //console.log('Full Name: ' + profile.getName());
-                    //console.log('First Name: ' + profile.getGivenName());
-                    //console.log('Last Name: ' + profile.getFamilyName());
-                    //console.log('Image URL: ' + profile.getImageUrl());
-                    //console.log('Email: ' + profile.getEmail());
-
-                    var userData = {
-                        'name': profile.getGivenName(),
-                        'last_name': profile.getFamilyName(),
-                        'image_url': profile.getImageUrl(),
-                        'email': profile.getEmail(),
-                        'network': 'Google'
-                    }
-
-                    SocialNetworkLogin(userData);
-
-                } else {
-                    // by some reasons user can not be signed-in
-                    document.getElementById('google-login').removeAttribute("disabled");
-                    
-                    UIkit.notification({
-                        message: 'ERROR: Failed to retrieve user data.',
-                        status: 'danger',
-                        pos: 'bottom-center'
-                    });
-                }
-
-            },
-
-            function(error) {
-                // In the case if Google Login is Failed
-                document.getElementById('google-login').removeAttribute("disabled");
-                
-                UIkit.notification({
-                    message: 'User cancelled login',
-                    status: 'warning',
-                    pos: 'bottom-center'
-                });
-            }
-        );
-
-    }); // END Google Login
+        SocialNetworkLogin(userData);
+    }
 
 
     /**
@@ -215,7 +157,6 @@
 
     } // END Facebook Login
     
-
 });
 
 
