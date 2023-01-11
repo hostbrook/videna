@@ -429,9 +429,11 @@
         function deleteAccount() {
 
             const deleteAccount = async () => {
+                const data = JSON.stringify({<?= $csrf->json ?>});
                 try {
                     const response = await fetch('/webapp/delete-account', {
                         method: 'DELETE',
+                        body: data,
                         headers: {
                             'Content-type': 'application/json'
                         }

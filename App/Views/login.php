@@ -13,7 +13,7 @@
 </div>
 <!-- /CONTENT -->
 
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script src="/js/videna-social.js?ver=230110"></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
+<script src="https://accounts.google.com/gsi/client" ></script>
+<script src="/js/videna-social.js?ver=230110" ></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
 
 <?php include PATH_VIEWS . 'inc/footer.php' ?>
