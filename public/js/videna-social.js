@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         console.info('User cancelled login.');
                     }
         
-                }, {scope: 'first_name,last_name,email'});
+                }, {scope: ''});
             }
         });
     });
