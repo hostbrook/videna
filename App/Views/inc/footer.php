@@ -39,15 +39,8 @@
         document.getElementById('modal-privacy').addEventListener('click', function () {
         
             const getModalBody = async () => {
-                const data = JSON.stringify({<?= $csrf->json ?>});
                 try {
-                    const response = await fetch('/webapp/privacy-policy', {
-                        method: 'POST',
-                        body: data,
-                        headers: {
-                            'Content-type': 'application/json'
-                        }
-                    });
+                    const response = await fetch('/webapp/privacy-policy');
                     if (response.ok) {
                         const jsonResponse = await response.json();
                         document.getElementById('privacy-body').innerHTML = jsonResponse.html;

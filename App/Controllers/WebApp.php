@@ -16,6 +16,7 @@ use \Videna\Models\Users;
 use \Videna\Core\User;
 use \Videna\Core\View;
 use \Videna\Core\Lang;
+use \Videna\Core\Log;
 
 
 class WebApp extends \Videna\Controllers\AppController
@@ -46,6 +47,54 @@ class WebApp extends \Videna\Controllers\AppController
         View::set([
             'email_exists' => $result
         ]);
+    }
+
+
+    /**
+     * Check if user exists in Database
+     * @return void 
+     */
+    public function actionCheckAccountFB()
+    {
+
+        if ( Router::get('accessToken') != null) {
+            $params = array(
+                'access_token' => Router::get('accessToken'),
+                'fields' => 'first_name,last_name,email,picture'
+
+            );
+    
+            $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
+            if (isset($userInfo['id'])) {
+                
+                Log::info([
+                    'id: ' . $userInfo['id'],
+                    'first_name: ' . (isset($userInfo['first_name']) ? $userInfo['first_name'] : 'none'),
+                    'last_name: ' . (isset($userInfo['last_name']) ? $userInfo['last_name'] : 'none'),
+                    'email: ' . (isset($userInfo['email']) ? $userInfo['email'] : 'none')
+                ]);
+
+                $user = Users::get(['facebook_id' => $userInfo['id']], 1);
+                if ($user !== false) {
+                    User::login($user['id']);
+                    View::set([
+                        'result' => 'user logined'
+                    ]);
+                }
+                else {
+                    View::set([
+                        'result' => 'user not exist'
+                    ]);
+                }                
+            }
+            else {
+                Log::info('error getting user data');
+                View::set([
+                    'result' => 'fetch error'
+                ]);
+            }
+        }
+        
     }
 
 

@@ -30,7 +30,8 @@ Route::get('/{lang}/logout', 'Tasks@Logout')->where(['lang' => 'ru|en'])->name('
 
 Route::post('/webapp/social-login', 'WebApp@SocialLogin');
 Route::post('/webapp/check-account', 'WebApp@CheckAccount');
-Route::post('/webapp/privacy-policy', 'WebApp@PrivacyPolicy');
+Route::post('/webapp/check-account-fb', 'WebApp@CheckAccountFB');
+Route::get('/webapp/privacy-policy', 'WebApp@PrivacyPolicy');
 Route::delete('/webapp/delete-account', 'WebApp@DeleteAccount');
 
 // API requests

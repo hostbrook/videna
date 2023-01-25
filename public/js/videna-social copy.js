@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(){
             appId   : '1282007215635462', // your FB App ID
             cookie  : true, // enable cookies to allow the server to access the session
             xfbml   : true, // parse social plugins on this page
-            version : 'v15.0' // use graph api version 12.0
+            version : 'v12.0' // use graph api version 12.0
         });
         FB.AppEvents.logPageView();
 
@@ -96,25 +96,27 @@ document.addEventListener("DOMContentLoaded", function(){
 
             if (response.status === 'connected') {
                 // User already logged-in. Retrive user data:
-                console.info('User is already logged into Facebook. Checking user data in app...');
-                checkFbUserData(response.authResponse);
+                getFbUserData();
             }
             else {
                 // User is not logged-in. Try to login.
-                console.info('User is not logged into Facebook. Trying to login via FB modal window ...');
                 FB.login(function (response) {
 
                     if (response.authResponse) {
                         // Retrive user data:
-                        console.info('User logged successfully. Checking user data in app...');
-                        checkFbUserData(response.authResponse);
+                        getFbUserData();
                     } else {
                         // User cancelled login or did not fully authorized.
                         document.getElementById('facebook-login').removeAttribute("disabled");
-                        console.info('User cancelled login.');
+                        
+                        UIkit.notification({
+                            message : 'User cancelled login',
+                            status  : 'warning',
+                            pos     : 'bottom-center'
+                        });
                     }
         
-                }, {scope: 'first_name,last_name,email'});
+                }, {scope: 'email'});
             }
         });
     });
@@ -156,78 +158,6 @@ document.addEventListener("DOMContentLoaded", function(){
     } // END Facebook Login
     
 });
-
-
-/**
- * Send request to the server to check user data using provided by FB API token.
- * At the server retrive user data from FB and:
- * - if user exists in App DB, login user and return response with successful 
- *   with next step is redirect to the user page login
- * - if user doesn't exists in App DB, return response and ask if user want to 
- *   be registered at the App
- */
-    
-async function checkFbUserData(user) {
-
-    user.csrf_token = document.querySelector('meta[name="csrf_token"]').getAttribute("content");
-
-    console.log(user);
-
-    try {
-        const response = await fetch("/webapp/check-account-fb", {
-            method: 'POST',
-            body: JSON.stringify(user),
-            headers: {
-                'Content-type': 'application/json'
-            }
-        });
-
-        if(response.ok) {
-
-            const jsonResponse = await response.json();
-            if (jsonResponse.statusCode != 200) throw Error(jsonResponse.response);
-
-            console.info('App response: '+ jsonResponse.result);
-
-            if (jsonResponse.result == 'user logined') {
-                // account exists in database
-
-                UIkit.notification({
-                    message: 'Redirection to dashboard...',
-                    pos: 'bottom-center',
-                    status: 'success'
-                });
-
-                setTimeout(function() {
-                    window.location.replace("/dashboard");
-                }, 500);
-                
-            }
-            else if (jsonResponse.result == 'user not exist') {
-                // account does not exist in database
-                
-                UIkit.modal.confirm(
-                    user.name + ', account linked with email ' + user.email + ' is not found. Would you like to create a new account with Videna?'
-                ).then(function() {
-                    UIkit.notification({
-                        message: 'Creating an account...',
-                        pos: 'bottom-center',
-                        status: 'primary'
-                    });
-                    setTimeout(function() {
-                        //SignInUser(user);
-                    }, 1000);
-                }, function () {
-                    console.log('User discards of creating an account.')
-                });
-            }
-
-        }
-
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 
 /**
