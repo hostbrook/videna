@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function getFbUserData(){
 
         //  FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture'},
-        FB.api('/me', {locale: 'en_US', fields: 'first_name,last_name,email,picture'},
+        FB.api('/me', {locale: 'en_US', fields: 'first_name,last_name,email'},
 
         function (response) {
             // response.first_name
@@ -142,15 +142,17 @@ document.addEventListener("DOMContentLoaded", function(){
             var userData = {
                 'name': response.first_name,
                 'last_name': response.last_name,
-                'image_url': response.picture.data.url,
+                //'image_url': response.picture.data.url,
                 'email': response.email,
-                'network': 'Facebook'
+                //'network': 'Facebook'
             }
 
+            return userData;
+/*
             SocialNetworkLogin(userData);
             
             document.getElementById('facebook-login').removeAttribute("disabled");
-        
+        */
         });
 
     } // END Facebook Login
@@ -207,7 +209,7 @@ async function checkFbUserData(user) {
                 // account does not exist in database
                 
                 UIkit.modal.confirm(
-                    user.name + ', account linked with email ' + user.email + ' is not found. Would you like to create a new account with Videna?'
+                    jsonResponse.first_name + ', account linked with email ' + jsonResponse.email + ' is not found. Would you like to create a new account with Videna?'
                 ).then(function() {
                     UIkit.notification({
                         message: 'Creating an account...',
@@ -215,7 +217,7 @@ async function checkFbUserData(user) {
                         status: 'primary'
                     });
                     setTimeout(function() {
-                        //SignInUser(user);
+                        CreateAccount(user);
                     }, 1000);
                 }, function () {
                     console.log('User discards of creating an account.')
@@ -305,6 +307,33 @@ async function SignInUser(user) {
 
     try {
         const response = await fetch("/webapp/social-login", {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+
+        if(response.ok) {
+            
+            const jsonResponse = await response.json();
+            if (jsonResponse.statusCode != 200) throw Error(jsonResponse.response);
+
+            setTimeout(function() {
+                window.location.replace("/dashboard");
+            }, 500);
+
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+async function CreateAccount(user) {
+
+    try {
+        const response = await fetch("/webapp/create-account", {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
