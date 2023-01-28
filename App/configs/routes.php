@@ -28,11 +28,10 @@ Route::get('/{lang}/logout', 'Tasks@Logout')->where(['lang' => 'ru|en'])->name('
 
 // APP requests
 
-Route::post('/webapp/social-login', 'WebApp@SocialLogin');
-Route::post('/webapp/check-account', 'WebApp@CheckAccount');
-Route::post('/webapp/check-account-fb', 'WebApp@CheckAccountFB');
-Route::post('/webapp/create-account', 'WebApp@CreateAccount');
 Route::get('/webapp/privacy-policy', 'WebApp@PrivacyPolicy');
+Route::post('/webapp/facebook-account', 'WebApp@FacebookAccount');
+Route::post('/webapp/google-account', 'WebApp@GoogleAccount');
+Route::post('/webapp/create-account', 'WebApp@CreateAccount');
 Route::delete('/webapp/delete-account', 'WebApp@DeleteAccount');
 
 // API requests

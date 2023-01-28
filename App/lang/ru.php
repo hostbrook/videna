@@ -65,6 +65,10 @@ return array(
 
     'title login.html' => 'Вход - Videna',
 
+    'redirection to dashboard' => 'Переход в админ панель...',
+    'creating an account' => 'Создание аккаунта...',
+    'account not found' => '{name}, аккаунт, связанный с емайлом {email} не найден. Вы хотите создать новый аккаунт с Videna?',
+
 
     // View: /admin/dashboard.html
 

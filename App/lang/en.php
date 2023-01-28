@@ -64,6 +64,10 @@ return array(
     // View: /login.html
 
     'title login.html' => 'Login - Videna',
+    
+    'redirection to dashboard' => 'Redirection to dashboard...',
+    'creating an account' => 'Creating an account...',
+    'account not found' => '{name}, account linked with email {email} not found. Would you like to create a new account with Videna?',
 
 
     // View: /admin/dashboard.html
