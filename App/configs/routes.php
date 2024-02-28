@@ -22,6 +22,8 @@ Route::view('/{lang}/login', 'login.php')->where(['lang' => 'ru|en'])->name('log
 Route::get('/dashboard', 'Admin\Dashboard@Index')->name('dashboard');
 Route::get('/{lang}/dashboard', 'Admin\Dashboard@Index')->where(['lang' => 'ru|en'])->name('dashboard');
 
+Route::get('/show-log', 'Admin\Dashboard@ShowLog')->name('show-log');
+
 Route::get('/logout', 'Tasks@Logout')->name('logout');
 Route::get('/{lang}/logout', 'Tasks@Logout')->where(['lang' => 'ru|en'])->name('logout');
 
@@ -33,6 +35,7 @@ Route::post('/webapp/facebook-account', 'WebApp@FacebookAccount');
 Route::post('/webapp/google-account', 'WebApp@GoogleAccount');
 Route::post('/webapp/create-account', 'WebApp@CreateAccount');
 Route::delete('/webapp/delete-account', 'WebApp@DeleteAccount');
+Route::delete('/admin/ajax/delete-log', 'Admin\Ajax@DeleteLog');
 
 // API requests
 Route::get('/api/users/{id}', 'Api@GetRequest');

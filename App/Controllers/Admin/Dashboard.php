@@ -43,4 +43,22 @@ class Dashboard extends \Videna\Controllers\HttpController
         }
     }
 
+
+    /**
+     * Show log file
+     * @return void
+     */
+    public function actionShowLog()
+    {
+
+        if (User::get('account') < USR_ADMIN) {
+            Router::$action = 'Error';
+            Router::$statusCode = 403;
+        }
+
+        View::set(['log' => Log::read()]);
+
+        View::setPath('admin/show-log.php');
+    }
+
 }
