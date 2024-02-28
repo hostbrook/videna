@@ -10,6 +10,17 @@
  */
 
 
+// PHP config settings:
+ini_set('error_reporting', E_ALL);
+ini_set('session.cookie_lifetime', 0);
+ini_set('session.use_strict_mode', 1);
+ini_set('display_errors', 1);
+
+
+// Server settings
+date_default_timezone_set('America/Edmonton');
+
+
 /*-------------------------------------------------------
     Section: Custom Application constants
 -------------------------------------------------------*/
@@ -38,16 +49,5 @@ return array(
 	  Section: Custom Application settings
 	-------------------------------------------------------*/
 
-    // Google Identity Service (GIS) settings 
-    'google' => [
-        'client_id'     => '478936046715-jtejjvl2nefkng5l4ja97qruhm7sfunq.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect_uri'  => 'https://videna.hostbrook.com'
-    ],
 
-    // Facebook API settings
-    'facebook' => [
-        'appId'     => '1282007215635462',
-        'appVersion' => 'v15.0'
-    ],
 );

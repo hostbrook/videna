@@ -39,7 +39,7 @@
             <nav class="uk-navbar uk-light" data-uk-navbar="mode:click; duration: 250">
                 <div class="uk-navbar-left">
                     <div class="uk-navbar-item uk-hidden@m">
-                        <a class="uk-logo" title="Videna" href="<?= URL_ABS ?>"><img src="/img/videna-logo-white.png"
+                        <a class="uk-logo" title="Videna" href="<?= env('APP_URL') ?>"><img src="/img/videna-logo-white.png"
                                 alt="Videna"></a>
                     </div>
                     <ul class="uk-navbar-nav uk-visible@m">
@@ -86,14 +86,14 @@
     <!-- LEFT BAR -->
     <aside id="left-col" class="uk-light uk-visible@m">
         <div class="left-logo uk-flex uk-flex-middle uk-flex-center">
-            <a class="uk-logo" title="Videna" href="<?= URL_ABS ?>"><img src="/img/videna-logo-white.png"
+            <a class="uk-logo" title="Videna" href="<?= env('APP_URL') ?>"><img src="/img/videna-logo-white.png"
                     alt="Videna"></a>
         </div>
         <div class="left-content-box  content-box-dark">
             <img src="https://www.gravatar.com/avatar/<?= md5($user->email) ?>" alt=""
                 class="uk-border-circle profile-img">
             <h4 class="uk-text-center uk-margin-remove-vertical text-light">
-                <?= $user->name ?>
+                <?= esc($user->name) ?>
             </h4>
 
             <div class="uk-position-relative uk-text-center uk-display-block">

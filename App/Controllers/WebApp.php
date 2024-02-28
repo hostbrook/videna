@@ -45,9 +45,9 @@ class WebApp extends \Videna\Controllers\AppController
     public function actionGoogleAccount($createAccount = false)
     {
         $params = array(
-            'client_id'     => Config::get('google')['client_id'],
-            'client_secret' => Config::get('google')['client_secret'],
-            'redirect_uri'  => Config::get('google')['redirect_uri'],
+            'client_id'     => env('GOOGLE_CLIENT_ID'),
+            'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+            'redirect_uri'  => env('GOOGLE_REDIRECT_URI'),
             'grant_type'    => 'authorization_code'
         );
 

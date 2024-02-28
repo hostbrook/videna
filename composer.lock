@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "993f03975585c4a9ee8fdd7d023871c1",
+    "content-hash": "b95f81bc70354a924e3960e6467cae0e",
     "packages": [
         {
             "name": "hostbrook/videna-fwk",
-            "version": "2.8",
+            "version": "3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hostbrook/videna-fwk.git",
-                "reference": "bebee54677170f0e13258d3e6d6f7acd2f15150c"
+                "reference": "59b58d24a59fdaf56f975ac56bd14e9f6cd9efe3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/bebee54677170f0e13258d3e6d6f7acd2f15150c",
-                "reference": "bebee54677170f0e13258d3e6d6f7acd2f15150c",
+                "url": "https://api.github.com/repos/hostbrook/videna-fwk/zipball/59b58d24a59fdaf56f975ac56bd14e9f6cd9efe3",
+                "reference": "59b58d24a59fdaf56f975ac56bd14e9f6cd9efe3",
                 "shasum": ""
             },
             "require": {
@@ -43,22 +43,22 @@
             "description": "Videna PHP framework core",
             "support": {
                 "issues": "https://github.com/hostbrook/videna-fwk/issues",
-                "source": "https://github.com/hostbrook/videna-fwk/tree/2.8"
+                "source": "https://github.com/hostbrook/videna-fwk/tree/3.0"
             },
-            "time": "2023-01-14T03:30:46+00:00"
+            "time": "2024-02-28T03:31:14+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.7.1",
+            "version": "v6.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "49cd7ea3d2563f028d7811f06864a53b1f15ff55"
+                "reference": "039de174cd9c17a8389754d3b877a2ed22743e18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/49cd7ea3d2563f028d7811f06864a53b1f15ff55",
-                "reference": "49cd7ea3d2563f028d7811f06864a53b1f15ff55",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/039de174cd9c17a8389754d3b877a2ed22743e18",
+                "reference": "039de174cd9c17a8389754d3b877a2ed22743e18",
                 "shasum": ""
             },
             "require": {
@@ -68,16 +68,17 @@
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
                 "doctrine/annotations": "^1.2.6 || ^1.13.3",
                 "php-parallel-lint/php-console-highlighter": "^1.0.0",
                 "php-parallel-lint/php-parallel-lint": "^1.3.2",
                 "phpcompatibility/php-compatibility": "^9.3.5",
                 "roave/security-advisories": "dev-latest",
-                "squizlabs/php_codesniffer": "^3.7.1",
+                "squizlabs/php_codesniffer": "^3.7.2",
                 "yoast/phpunit-polyfills": "^1.0.4"
             },
             "suggest": {
+                "decomplexity/SendOauth2": "Adapter for using XOAUTH2 authentication",
                 "ext-mbstring": "Needed to send email in multibyte encoding charset or decode encoded addresses",
                 "ext-openssl": "Needed for secure SMTP sending and DKIM signing",
                 "greew/oauth2-azure-provider": "Needed for Microsoft Azure XOAUTH2 authentication",
@@ -117,7 +118,7 @@
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "support": {
                 "issues": "https://github.com/PHPMailer/PHPMailer/issues",
-                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.7.1"
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.9.1"
             },
             "funding": [
                 {
@@ -125,7 +126,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-08T13:30:06+00:00"
+            "time": "2023-11-25T22:23:28+00:00"
         }
     ],
     "packages-dev": [],
@@ -138,5 +139,5 @@
         "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }

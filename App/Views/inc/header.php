@@ -32,7 +32,7 @@
 
                         <div class="uk-navbar-left">
                             <div class="uk-navbar-item">
-                                <a class="uk-logo" title="Videna" href="<?= URL_ABS ?>"><img src="/img/videna-logo-white.png" alt="Videna"></a>
+                                <a class="uk-logo" title="Videna" href="<?= env('APP_URL') ?>"><img src="/img/videna-logo-white.png" alt="Videna"></a>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                                 <li><a href="https://github.com/hostbrook/videna/wiki/"><?= $_['docs'] ?></a></li>
                                 <?php if ($user->account > USR_UNREG) : ?>
                                     <li>
-                                        <a href="#" data-uk-icon="chevron-down"><span class="uk-icon" data-uk-icon="icon: user"></span> <?= $user->name ?></a>
+                                        <a href="#" data-uk-icon="chevron-down"><span class="uk-icon" data-uk-icon="icon: user"></span> <?= esc($user->name) ?></a>
                                         <div class="uk-navbar-dropdown">
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                                 <li><a href="/dashboard"><span uk-icon="icon: nut"></span> <?= $_['dashboard'] ?></a></li>
@@ -91,7 +91,7 @@
                     <button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
                     <h3>Videna</h3>
                     <ul class="uk-nav uk-nav-default">
-                        <li><a href="<?= URL_ABS ?>"><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: home"></span> <?= $_['home'] ?></a></li>
+                        <li><a href="<?= env('APP_URL') ?>"><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: home"></span> <?= $_['home'] ?></a></li>
                         <li><a href="https://github.com/hostbrook/videna"><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: github"></span> GitHub</a></li>
                         <li><a href="https://github.com/hostbrook/videna/wiki/"><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: file-text"></span> <?= $_['docs'] ?></a></li>
 

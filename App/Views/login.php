@@ -1,4 +1,4 @@
-<?php include PATH_VIEWS . 'inc/header.php' ?>
+<?php include 'inc/header.php' ?>
 
 <!-- CONTENT -->
 <div class="uk-container uk-container-small uk-flex-auto uk-text-center" data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
@@ -37,11 +37,11 @@
 <script>
     const config = {
         "google": {
-            "client_id": "<?= $config['google']['client_id'] ?>"
+            "client_id": "<?= env('GOOGLE_CLIENT_ID') ?>"
         },
         "facebook": {
-            "appId": "<?= $config['facebook']['appId'] ?>",
-            "appVersion": "<?= $config['facebook']['appVersion'] ?>",
+            "appId": "<?= env('FACEBOOK_APP_ID') ?>",
+            "appVersion": "<?= env('FACEBOOK_APP_VERSION') ?>",
         },
         "lang": {
             "redirection_to_dashboard": "<?= $_['redirection to dashboard'] ?>",
@@ -52,4 +52,4 @@
 </script>
 <script src="/js/videna-social.js" ></script> <!-- ?ver=<?= rand(1, 999999) ?> -->
 
-<?php include PATH_VIEWS . 'inc/footer.php' ?>
+<?php include 'inc/footer.php' ?>
