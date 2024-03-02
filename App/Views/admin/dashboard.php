@@ -202,5 +202,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script src="js/chartScripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            UIkit.modal('#modal-hello').show();
+        });
+    </script>
     
 <?php include 'admin/inc/footer.php' ?>

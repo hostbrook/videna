@@ -44,11 +44,6 @@
             </p>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            UIkit.modal('#modal-hello').show();
-        });
-    </script>
     <!-- /MODAL -->
 
     <script>

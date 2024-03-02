@@ -43,7 +43,7 @@
                                 alt="Videna"></a>
                     </div>
                     <ul class="uk-navbar-nav uk-visible@m">
-                        <li><a href="#">Accounts</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
                         <li>
                             <a href="#">Settings <span data-uk-icon="icon: triangle-down"></span></a>
                             <div class="uk-navbar-dropdown">

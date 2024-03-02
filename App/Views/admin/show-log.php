@@ -8,52 +8,12 @@
                 
                 <h3 class="mt-5">Application log file</h3>
 
-                <div class="uk-panel uk-panel-scrollable" uk-height-viewport="expand: true">
-                    <?php if ($log) : ?>
-                        <?php foreach ($log as $line) : ?>
-                        <?php
-                            preg_match('/^\[(.*)\] (.*)$/Uism', $line, $match);
+                <div id="log" class="uk-panel uk-panel-scrollable" uk-height-viewport="expand: true">
 
-                            if (!empty($match)) {
-                                $datetime = '[<span class="uk-text-success">' . $match[1] . '</span>]';
-
-                                $recordType = $match[2];
-                                $level = ' <span class="uk-text-primary">' . $recordType . '</span>';
-
-                                preg_match('/.*(?:'.FATAL.'|'.EMERGENCY.'|'.ERROR.'|'.CRITICAL.').*/ism', $recordType, $match);
-                                if (!empty($match)) $level = ' <span class="uk-text-danger">' . $recordType . '</span>';
-
-                                preg_match('/.*(?:'.ALERT.'|'.WARNING.'|'.NOTICE.').*/ism', $recordType, $match);
-                                if (!empty($match)) $level = ' <span class="uk-text-warning">' . $recordType . '</span>';
-                
-                                $line = '<span class="uk-text-muted">' . $datetime . $level . '</span>';
-                            }
-                            else {
-                                preg_match('/^Stack trace(.*)$/Uism', $line, $match);
-                
-                                if ( !empty($match) )  {
-                                    $line = '<span class="uk-text-muted">' . $match[0] . '</span>';
-                                }
-                                else {
-                                    preg_match('/^#\d .*$/Uism', $line, $match);
-                                    if ( !empty($match) )  {
-                                        $line = '<span class="uk-text-muted">' . $match[0] . '</span>';
-                                    }
-                                    else {
-                                        $line = '<span class="uk-text-secondary">' . $line . '</span>';
-                                    }
-                                }
-                            }
-                        ?>
-                        <code class="uk-text-small"><?= $line ?></code><br>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <p class="uk-text-success">Log file not found.</p>
-                    <?php endif; ?>
                 </div>
 
                 <p>
-                    <a class="uk-button uk-button-primary" href="/show-log">Update</a>
+                    <button class="uk-button uk-button-primary" id="update-log">Update</button>
                     <button class="uk-button uk-button-danger" id="delete-log">Delete</button>
                 </p>
 
@@ -72,7 +32,36 @@
 
 <script>
 /**
- * Update log file
+ * Update log file  (Example GET)
+ */
+
+// Choose element:
+const btnUpdateLog = document.querySelector('#update-log');
+
+// Set event listener for selected element:
+    btnUpdateLog.addEventListener('click', function () {
+    UpdateLogFile();
+});
+
+// Update file function:
+const UpdateLogFile = async () => {
+    try {
+        const response = await fetch('/admin/ajax/update-log');
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            document.getElementById('log').innerHTML = jsonResponse.html;
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+
+UpdateLogFile();
+
+/**
+ * Delete log file (Example POST)
  */
 
 // Choose element:
@@ -87,7 +76,7 @@ btnDeleteLog.addEventListener('click', function () {
 async function DeleteLogFile() {
     //user.crsf_token = document.querySelector('meta[name="csrf_token"]').getAttribute("content");
     let data = {
-      "csrf_token": "<?= $csrf->token ?>"
+        <?= $csrf->json ?>
     }
 
     try {
@@ -99,13 +88,9 @@ async function DeleteLogFile() {
             }
         });
 
-        if(response.ok) {
-            
+        if(response.ok) {            
             const jsonResponse = await response.json();
-            if (jsonResponse.response != 200) console.log(jsonResponse.status);
-
-            setTimeout(function() {window.location.replace("/show-log");}, 500);
-
+            if (jsonResponse.response != 200) document.getElementById('log').innerHTML = jsonResponse.html;
         }
     } catch (error) {
         console.log(error);

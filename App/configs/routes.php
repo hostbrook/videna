@@ -36,6 +36,7 @@ Route::post('/webapp/google-account', 'WebApp@GoogleAccount');
 Route::post('/webapp/create-account', 'WebApp@CreateAccount');
 Route::delete('/webapp/delete-account', 'WebApp@DeleteAccount');
 Route::delete('/admin/ajax/delete-log', 'Admin\Ajax@DeleteLog');
+Route::get('/admin/ajax/update-log', 'Admin\Ajax@UpdateLog');
 
 // API requests
 Route::get('/api/users/{id}', 'Api@GetRequest');

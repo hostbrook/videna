@@ -14,6 +14,7 @@ namespace App\Controllers\Admin;
 use \Videna\Core\Router;
 use \Videna\Core\User;
 use \Videna\Core\Log;
+use \Videna\Core\View;
 
 
 class Ajax extends \Videna\Controllers\AppController
@@ -41,6 +42,22 @@ class Ajax extends \Videna\Controllers\AppController
     public function actionDeleteLog()
     {
         $result = Log::delete();
+        
+        View::set([
+            'html' => View::render('admin/render-log.php', ['log' => Log::read()])
+        ]);
+    }
+
+
+    /**
+     * Update log file into block window
+     * @return void
+     */
+    public function actionUpdateLog()
+    {
+        View::set([
+            'html' => View::render('admin/render-log.php', ['log' => Log::read()])
+        ]);
     }
 
 }

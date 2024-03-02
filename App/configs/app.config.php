@@ -49,5 +49,5 @@ return array(
 	  Section: Custom Application settings
 	-------------------------------------------------------*/
 
-    'app version' => '3.1',
+    'app version' => '3.2',
 );
