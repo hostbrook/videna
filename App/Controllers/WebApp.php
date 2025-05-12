@@ -19,6 +19,7 @@ use \Videna\Core\View;
 use \Videna\Core\Lang;
 use \Videna\Core\Log;
 use \Videna\Models\DB;
+use \Videna\Core\App;
 
 
 class WebApp extends \Videna\Controllers\AppController
@@ -118,7 +119,7 @@ class WebApp extends \Videna\Controllers\AppController
                             'name' => $userInfo['given_name'],
                             'last_name' => $userInfo['family_name'],
                             'email' => $userInfo['email'],
-                            'lang' => Lang::$code,
+                            'lang' => App::getLang(),
                             'account' => USR_REG,
                             'google_id' => $userInfo['id']
                         ]);
@@ -193,7 +194,7 @@ class WebApp extends \Videna\Controllers\AppController
                             'name' => $userInfo['first_name'],
                             'last_name' => $userInfo['last_name'],
                             'email' => $userInfo['email'],
-                            'lang' => Lang::$code,
+                            'lang' => App::getLang(),
                             'account' => USR_REG,
                             'facebook_id' => $userInfo['id']
                         ]);

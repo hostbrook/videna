@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?= $view->lang ?>">
+<html lang="<?= $app->lang ?>">
 
 <head>
 
@@ -40,12 +40,12 @@
 
                             <div class="uk-navbar-item uk-visible@s">
                                 <div class="uk-navbar-subtitle uk-text-muted">
-                                    <?php if ($view->lang == 'en'): ?>
+                                    <?php if ($app->lang == 'en'): ?>
                                         <span class="uk-text-muted" href="/en/">EN</span>
                                     <?php else : ?>
                                         <a class="uk-text-muted" href="/en/">EN</a>
                                     <?php endif ?> |
-                                    <?php if ($view->lang == 'ru'): ?>
+                                    <?php if ($app->lang == 'ru'): ?>
                                         <span class="uk-text-muted" href="/ru/">RU</span>
                                     <?php else : ?>
                                         <a class="uk-text-muted" href="/ru/">RU</a>

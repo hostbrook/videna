@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?= $view->lang ?>">
+<html lang="<?= $app->lang ?>">
 
 <head>
     <meta charset="utf-8">

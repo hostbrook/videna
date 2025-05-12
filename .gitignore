@@ -12,8 +12,15 @@ logs/*
 
 # Ignore file containing environment variables 
 App/configs/.env
-storage/*.key
+
+# Ignore storage files
+storage/*
+!storage/dkim
+storage/dkim/*
 
 # Ignore IDE specific files
 .vscode/git
 node_modules
+
+#ignore GitHub system root
+.github/*

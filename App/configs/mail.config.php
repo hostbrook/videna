@@ -15,17 +15,10 @@
 -------------------------------------------------------*/
 return array(
 
+    // Use value 'error_log' for Debugoutput to prevent echo
+    // Comment Debugoutput to make output via echo
+    'Debugoutput' => 'error_log',
+
     'CharSet' => 'UTF-8',
     'Encoding' => 'base64',
-
-    // DKIM settings (overrided in .env)
-    // Keys are generated here: https://tools.socketlabs.com/dkim/generator
-    // Check DKIM here: https://dmarcly.com/tools/dkim-record-checker
-    // Check mail here: https://www.mail-tester.com/
-    /*
-    'DKIM_private_string' => 
-'-----BEGIN RSA PRIVATE KEY-----
-... s o m e   p r i v a t e  k e y ...
------END RSA PRIVATE KEY-----'
-*/
 );
